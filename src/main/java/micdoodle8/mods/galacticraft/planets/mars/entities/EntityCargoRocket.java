@@ -1,5 +1,8 @@
 package micdoodle8.mods.galacticraft.planets.mars.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.netty.buffer.ByteBuf;
 import micdoodle8.mods.galacticraft.api.entity.IRocketType;
 import micdoodle8.mods.galacticraft.api.entity.IWorldTransferCallback;
@@ -23,9 +26,6 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.WorldServer;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class EntityCargoRocket extends EntityAutoRocket implements IRocketType, IInventory, IWorldTransferCallback
 {
@@ -403,7 +403,8 @@ public class EntityCargoRocket extends EntityAutoRocket implements IRocketType, 
         return false;
     }
     
-    public double getOnPadYOffset()
+    @Override
+	public double getOnPadYOffset()
     {
     	return 0D;//-0.25D;
     }

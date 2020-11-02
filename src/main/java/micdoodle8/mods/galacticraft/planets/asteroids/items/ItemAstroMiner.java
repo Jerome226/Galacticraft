@@ -1,5 +1,7 @@
 package micdoodle8.mods.galacticraft.planets.asteroids.items;
 
+import java.util.List;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import micdoodle8.mods.galacticraft.api.item.IHoldableItem;
@@ -22,8 +24,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
-
-import java.util.List;
 
 public class ItemAstroMiner extends Item implements IHoldableItem
 {

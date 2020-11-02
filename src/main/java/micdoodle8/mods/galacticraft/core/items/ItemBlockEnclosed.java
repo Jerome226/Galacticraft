@@ -1,7 +1,5 @@
 package micdoodle8.mods.galacticraft.core.items;
 
-import java.lang.reflect.Method;
-
 import appeng.api.AEApi;
 import appeng.api.util.AEColor;
 import cpw.mods.fml.relauncher.Side;
@@ -15,9 +13,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
 
 @SuppressWarnings("unused")
 public class ItemBlockEnclosed extends ItemBlockDesc

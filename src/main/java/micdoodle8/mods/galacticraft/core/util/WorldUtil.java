@@ -4,12 +4,26 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Random;
+import java.util.Set;
+import java.util.TreeMap;
 
+import com.google.common.collect.Lists;
 import com.google.common.collect.MapMaker;
 import com.google.common.collect.Maps;
 
+import cpw.mods.fml.client.FMLClientHandler;
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.IWorldGenerator;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import micdoodle8.mods.galacticraft.api.GalacticraftRegistry;
 import micdoodle8.mods.galacticraft.api.entity.IAntiGrav;
 import micdoodle8.mods.galacticraft.api.entity.IWorldTransferCallback;
@@ -76,14 +90,6 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraftforge.client.ForgeHooksClient;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import com.google.common.collect.Lists;
-
-import cpw.mods.fml.client.FMLClientHandler;
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.IWorldGenerator;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 //import micdoodle8.mods.galacticraft.planets.asteroids.entities.EntityAstroMiner;
 
@@ -313,9 +319,9 @@ public class WorldUtil
             int j = MathHelper.floor_double(player.posY);
             int k = MathHelper.floor_double(player.posZ);
             int l = ForgeHooksClient.getSkyBlendColour(world, i, j, k);
-            float f4 = (float)(l >> 16 & 255) / 255.0F;
-            float f5 = (float)(l >> 8 & 255) / 255.0F;
-            float f6 = (float)(l & 255) / 255.0F;
+            float f4 = (l >> 16 & 255) / 255.0F;
+            float f5 = (l >> 8 & 255) / 255.0F;
+            float f6 = (l & 255) / 255.0F;
             f4 *= f2;
             f5 *= f2;
             f6 *= f2;

@@ -1,14 +1,12 @@
 package micdoodle8.mods.galacticraft.core.util;
 
-import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.registry.GameRegistry;
-
 import java.lang.reflect.Method;
 
+import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.common.registry.GameRegistry;
+import micdoodle8.mods.galacticraft.core.blocks.BlockEnclosed;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.entity.player.EntityPlayer;
-
-import micdoodle8.mods.galacticraft.core.blocks.BlockEnclosed;
 
 public class CompatibilityManager
 {

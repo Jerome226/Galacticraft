@@ -9,21 +9,16 @@ import java.util.Random;
 
 import org.apache.commons.io.FileUtils;
 
-import cpw.mods.fml.common.FMLLog;
-
 import micdoodle8.mods.galacticraft.core.GalacticraftCore;
 import micdoodle8.mods.galacticraft.core.network.PacketSimple;
 import micdoodle8.mods.galacticraft.core.network.PacketSimple.EnumSimplePacket;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManager;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
-import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraft.world.gen.layer.GenLayer;
-import net.minecraft.world.gen.layer.IntCache;
 
 @SuppressWarnings("unused")
 public class MapGen
@@ -81,9 +76,9 @@ public class MapGen
     	try {
     		Field bil = biomeMapWCM.getClass().getDeclaredField(VersionUtil.getNameDynamic(VersionUtil.KEY_FIELD_BIOMEINDEXLAYER));
     		bil.setAccessible(true);
-    		this.biomeMapGenLayer = (GenLayer) bil.get(biomeMapWCM);
+    		MapGen.biomeMapGenLayer = (GenLayer) bil.get(biomeMapWCM);
     	} catch (Exception e) { }
-    	if (this.biomeMapGenLayer == null)
+    	if (MapGen.biomeMapGenLayer == null)
     	{
     		this.calculatingMap = false;
     		GCLog.debug("Failed to get gen layer from World Chunk Manager.");
@@ -235,7 +230,7 @@ public class MapGen
 	
     public void getHeightMap(int cx, int cz)
     {
-    	rand.setSeed((long)cx * 341873128712L + (long)cz * 132897987541L);
+    	rand.setSeed(cx * 341873128712L + cz * 132897987541L);
     	biomesGridHeights = this.biomeMapWCM.getBiomesForGeneration(biomesGridHeights, cx * 4 - 2, cz * 4 - 2, 10, 10); 
         func_147423_a(cx * 4, 0, cz * 4);
 
@@ -409,15 +404,15 @@ public class MapGen
                 }
 
                 ++i1;
-                double d13 = (double)f1;
-                final double d14 = (double)f / 6.0D;
+                double d13 = f1;
+                final double d14 = f / 6.0D;
                 d13 += d12 * 0.2D;
                 d13 = d13 * 8.5D / 8.0D;
                 double d5 = 8.5D + d13 * 4.0D;
 
                 for (int j2 = 2; j2 < 19; ++j2)
                 {
-                    double d6 = ((double)j2 - d5) / d14;
+                    double d6 = (j2 - d5) / d14;
                     if (d6 < 0.0D)
                     {
                         d6 *= 4.0D;

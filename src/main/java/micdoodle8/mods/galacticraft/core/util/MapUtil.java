@@ -25,7 +25,6 @@ import org.apache.commons.io.FileUtils;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-
 import micdoodle8.mods.galacticraft.api.vector.BlockVec3;
 import micdoodle8.mods.galacticraft.core.GalacticraftCore;
 import micdoodle8.mods.galacticraft.core.client.DynamicTextureProper;
@@ -74,7 +73,7 @@ public class MapUtil
         {
             for (int k = -2; k <= 2; ++k)
             {
-                float f = 10.0F / MathHelper.sqrt_float((float)(j * j + k * k) + 0.2F);
+                float f = 10.0F / MathHelper.sqrt_float(j * j + k * k + 0.2F);
                 parabolicField[j + 2 + (k + 2) * 5] = f;
             }
         }
@@ -477,8 +476,8 @@ public class MapUtil
 				for (int z = 0; z < 384; z++)
 				{
 					int arrayIndex = (x * 384 + z) * 2;
-					int biome = ((int) raw[arrayIndex]) & 255;
-					int height = ((int) raw[arrayIndex + 1]) & 255;
+					int biome = (raw[arrayIndex]) & 255;
+					int height = (raw[arrayIndex + 1]) & 255;
 
 					if (height < 63 && biome != 10)
 						biome = 0;
@@ -516,8 +515,8 @@ public class MapUtil
 				for (int z = 0; z < 48; z++)
 				{
 					int arrayIndex = (x * 48 + z) * 2;
-					int biome = ((int) raw[arrayIndex]) & 255;
-					int height = ((int) raw[arrayIndex + 1]) & 255;
+					int biome = (raw[arrayIndex]) & 255;
+					int height = (raw[arrayIndex + 1]) & 255;
 
 					if (height < 63 && biome != 10)
 						biome = 0;
@@ -635,8 +634,8 @@ public class MapUtil
         		if (imageZ >= SIZE_STD2) break;
 
     			int arrayIndex = (x * SIZE_STD + z) * 2;
-    			int biome = ((int) raw[arrayIndex]) & 255;
-    			int height = ((int) raw[arrayIndex + 1]) & 255;
+    			int biome = (raw[arrayIndex]) & 255;
+    			int height = (raw[arrayIndex + 1]) & 255;
 
     			if (height < 63 && biome != 10)
     				biome = 0;

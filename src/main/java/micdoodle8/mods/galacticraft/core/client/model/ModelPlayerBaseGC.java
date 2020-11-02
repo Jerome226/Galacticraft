@@ -1,5 +1,10 @@
 package micdoodle8.mods.galacticraft.core.client.model;
 
+import java.lang.reflect.Constructor;
+import java.util.List;
+
+import org.lwjgl.opengl.GL11;
+
 import api.player.model.ModelPlayer;
 import api.player.model.ModelPlayerAPI;
 import api.player.model.ModelPlayerBase;
@@ -28,11 +33,6 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.IModelCustom;
 import net.smart.render.playerapi.SmartRender;
-
-import java.lang.reflect.Constructor;
-import java.util.List;
-
-import org.lwjgl.opengl.GL11;
 
 public class ModelPlayerBaseGC extends ModelPlayerBase
 {

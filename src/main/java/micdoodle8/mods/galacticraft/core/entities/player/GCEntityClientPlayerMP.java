@@ -157,12 +157,12 @@ public class GCEntityClientPlayerMP extends EntityClientPlayerMP
                 }
                 //-----------END CUSTOM
                     
-                this.func_145771_j(this.posX - (double)this.width * 0.35D, this.boundingBox.minY + 0.5D, this.posZ + (double)this.width * 0.35D);
-                this.func_145771_j(this.posX - (double)this.width * 0.35D, this.boundingBox.minY + 0.5D, this.posZ - (double)this.width * 0.35D);
-                this.func_145771_j(this.posX + (double)this.width * 0.35D, this.boundingBox.minY + 0.5D, this.posZ - (double)this.width * 0.35D);
-                this.func_145771_j(this.posX + (double)this.width * 0.35D, this.boundingBox.minY + 0.5D, this.posZ + (double)this.width * 0.35D);
+                this.func_145771_j(this.posX - this.width * 0.35D, this.boundingBox.minY + 0.5D, this.posZ + this.width * 0.35D);
+                this.func_145771_j(this.posX - this.width * 0.35D, this.boundingBox.minY + 0.5D, this.posZ - this.width * 0.35D);
+                this.func_145771_j(this.posX + this.width * 0.35D, this.boundingBox.minY + 0.5D, this.posZ - this.width * 0.35D);
+                this.func_145771_j(this.posX + this.width * 0.35D, this.boundingBox.minY + 0.5D, this.posZ + this.width * 0.35D);
 
-                boolean flag2 = (float)this.getFoodStats().getFoodLevel() > 6.0F || this.capabilities.allowFlying;
+                boolean flag2 = this.getFoodStats().getFoodLevel() > 6.0F || this.capabilities.allowFlying;
 
                 if (this.onGround && !flag1 && this.movementInput.moveForward >= ff && !this.isSprinting() && flag2 && !this.isUsingItem() && !this.isPotionActive(Potion.blindness))
                 {
@@ -217,12 +217,12 @@ public class GCEntityClientPlayerMP extends EntityClientPlayerMP
                 //  from: EntityLivingBase
                 if (this.newPosRotationIncrements > 0)
                 {
-                    double d0 = this.posX + (this.newPosX - this.posX) / (double)this.newPosRotationIncrements;
-                    double d1 = this.posY + (this.newPosY - this.posY) / (double)this.newPosRotationIncrements;
-                    double d2 = this.posZ + (this.newPosZ - this.posZ) / (double)this.newPosRotationIncrements;
-                    double d3 = MathHelper.wrapAngleTo180_double(this.newRotationYaw - (double)this.rotationYaw);
-                    this.rotationYaw = (float)((double)this.rotationYaw + d3 / (double)this.newPosRotationIncrements);
-                    this.rotationPitch = (float)((double)this.rotationPitch + (this.newRotationPitch - (double)this.rotationPitch) / (double)this.newPosRotationIncrements);
+                    double d0 = this.posX + (this.newPosX - this.posX) / this.newPosRotationIncrements;
+                    double d1 = this.posY + (this.newPosY - this.posY) / this.newPosRotationIncrements;
+                    double d2 = this.posZ + (this.newPosZ - this.posZ) / this.newPosRotationIncrements;
+                    double d3 = MathHelper.wrapAngleTo180_double(this.newRotationYaw - this.rotationYaw);
+                    this.rotationYaw = (float)(this.rotationYaw + d3 / this.newPosRotationIncrements);
+                    this.rotationPitch = (float)(this.rotationPitch + (this.newRotationPitch - this.rotationPitch) / this.newPosRotationIncrements);
                     --this.newPosRotationIncrements;
                     this.setPosition(d0, d1, d2);
                     this.setRotation(this.rotationYaw, this.rotationPitch);

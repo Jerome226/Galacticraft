@@ -1,7 +1,5 @@
 package micdoodle8.mods.galacticraft.planets.asteroids.entities;
 
-import io.netty.buffer.ByteBuf;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -11,6 +9,7 @@ import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import io.netty.buffer.ByteBuf;
 import micdoodle8.mods.galacticraft.api.entity.IAntiGrav;
 import micdoodle8.mods.galacticraft.api.entity.IEntityNoisy;
 import micdoodle8.mods.galacticraft.api.entity.ITelemetry;
@@ -688,7 +687,7 @@ public class EntityAstroMiner extends Entity implements IInventory, IPacketRecei
     
     public void recall()
     {
-		if (this.AIstate > this.AISTATE_ATBASE && this.AIstate < this.AISTATE_RETURNING)
+		if (this.AIstate > EntityAstroMiner.AISTATE_ATBASE && this.AIstate < EntityAstroMiner.AISTATE_RETURNING)
 		{	
 			AIstate = AISTATE_RETURNING;
 			this.pathBlockedCount = 0;
@@ -802,7 +801,7 @@ public class EntityAstroMiner extends Entity implements IInventory, IPacketRecei
 	 */
 	private boolean moveToTarget()
 	{
-		if (this.energyLevel < this.RETURNENERGY || this.inventoryDrops > this.RETURNDROPS)
+		if (this.energyLevel < EntityAstroMiner.RETURNENERGY || this.inventoryDrops > EntityAstroMiner.RETURNDROPS)
 		{
 			AIstate = AISTATE_RETURNING;
 			this.pathBlockedCount = 0;
@@ -854,7 +853,7 @@ public class EntityAstroMiner extends Entity implements IInventory, IPacketRecei
 		if (this.minePoints.size() > 0) return;
 		
 		BlockVec3 inFront = new BlockVec3(MathHelper.floor_double(this.posX + 0.5D), MathHelper.floor_double(this.posY + 1.5D), MathHelper.floor_double(this.posZ + 0.5D));
-		int otherEnd = (this.worldObj.provider instanceof WorldProviderAsteroids) ? this.MINE_LENGTH_AST : this.MINE_LENGTH;
+		int otherEnd = (this.worldObj.provider instanceof WorldProviderAsteroids) ? EntityAstroMiner.MINE_LENGTH_AST : EntityAstroMiner.MINE_LENGTH;
 		if (this.baseFacing == 2 || this.baseFacing == 4) otherEnd = -otherEnd;
 		switch (this.baseFacing)
 		{
@@ -901,7 +900,7 @@ public class EntityAstroMiner extends Entity implements IInventory, IPacketRecei
 	 */
 	private boolean doMining()
 	{
-		if (this.energyLevel < this.RETURNENERGY || this.inventoryDrops > this.RETURNDROPS || this.minePoints.size() == 0)
+		if (this.energyLevel < EntityAstroMiner.RETURNENERGY || this.inventoryDrops > EntityAstroMiner.RETURNDROPS || this.minePoints.size() == 0)
 		{
 			if (this.minePoints.size() > 0 && this.minePointCurrent != null)
 			{
@@ -1786,7 +1785,8 @@ public class EntityAstroMiner extends Entity implements IInventory, IPacketRecei
     	super.setLocationAndAngles(x, y, z, rotYaw, rotPitch);
     }
     
-    @SideOnly(Side.CLIENT)
+    @Override
+	@SideOnly(Side.CLIENT)
     public void setPositionAndRotation2(double p_70056_1_, double p_70056_3_, double p_70056_5_, float p_70056_7_, float p_70056_8_, int p_70056_9_)
     {
         this.minecartX = p_70056_1_;
@@ -1800,7 +1800,8 @@ public class EntityAstroMiner extends Entity implements IInventory, IPacketRecei
         this.motionZ = this.velocityZ;
     }
 
-    @SideOnly(Side.CLIENT)
+    @Override
+	@SideOnly(Side.CLIENT)
     public void setVelocity(double p_70016_1_, double p_70016_3_, double p_70016_5_)
     {
         this.velocityX = this.motionX = p_70016_1_;
@@ -1848,7 +1849,8 @@ public class EntityAstroMiner extends Entity implements IInventory, IPacketRecei
         }
     }
 
-    public boolean isEntityInvulnerable()
+    @Override
+	public boolean isEntityInvulnerable()
     {
         //Can't be damaged if its player is offline - it's in a fully dormant state
     	return this.playerMP == null;
@@ -1884,13 +1886,15 @@ public class EntityAstroMiner extends Entity implements IInventory, IPacketRecei
         }
     }
 
-    @SideOnly(Side.CLIENT)
+    @Override
+	@SideOnly(Side.CLIENT)
     public IUpdatePlayerListBox getSoundUpdater()
     {
     	return this.soundUpdater;
     }
     
-    @SideOnly(Side.CLIENT)
+    @Override
+	@SideOnly(Side.CLIENT)
     public ISound setSoundUpdater(EntityPlayerSP player)
     {
     	this.soundUpdater = new SoundUpdaterMiner(player, this);
@@ -1906,7 +1910,8 @@ public class EntityAstroMiner extends Entity implements IInventory, IPacketRecei
         this.soundToStop = false;
     }
 
-    public void transmitData(int[] data)
+    @Override
+	public void transmitData(int[] data)
     {
     	data[0] = (int) (this.posX);
     	data[1] = (int) (this.posY);
@@ -1915,7 +1920,8 @@ public class EntityAstroMiner extends Entity implements IInventory, IPacketRecei
 		data[4] = this.AIstate;
     }
 	
-    public void receiveData(int[] data, String[] str)
+    @Override
+	public void receiveData(int[] data, String[] str)
     {
 		str[0] = "";
 		str[1] = "x: " + data[0];
@@ -1949,7 +1955,8 @@ public class EntityAstroMiner extends Entity implements IInventory, IPacketRecei
 		}
     }
 
-    public void adjustDisplay(int[] data)
+    @Override
+	public void adjustDisplay(int[] data)
     {
     	GL11.glScalef(0.9F, 0.9F, 0.9F);
     }
@@ -1958,7 +1965,7 @@ public class EntityAstroMiner extends Entity implements IInventory, IPacketRecei
     protected void readEntityFromNBT(NBTTagCompound nbt)
     {
     	final NBTTagList var2 = nbt.getTagList("Items", 10);
-        this.cargoItems = new ItemStack[this.INV_SIZE];
+        this.cargoItems = new ItemStack[EntityAstroMiner.INV_SIZE];
 
         if (var2 != null)
         {

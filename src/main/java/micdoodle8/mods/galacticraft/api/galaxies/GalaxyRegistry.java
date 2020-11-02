@@ -1,10 +1,19 @@
 package micdoodle8.mods.galacticraft.api.galaxies;
 
-import com.google.common.collect.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Maps;
+
 import cpw.mods.fml.common.eventhandler.Event;
 import net.minecraftforge.common.MinecraftForge;
-
-import java.util.*;
 
 /**
  * Credits to KingLemming and CovertJaguar, since this is based on the

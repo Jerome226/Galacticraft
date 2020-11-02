@@ -1,5 +1,7 @@
 package micdoodle8.mods.galacticraft.core.client.model;
 
+import org.lwjgl.opengl.GL11;
+
 import micdoodle8.mods.galacticraft.api.vector.Vector3;
 import micdoodle8.mods.galacticraft.api.world.IGalacticraftWorldProvider;
 import micdoodle8.mods.galacticraft.core.entities.EntityFlag;
@@ -7,7 +9,6 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.entity.Entity;
-import org.lwjgl.opengl.GL11;
 
 public class ModelFlag extends ModelBase
 {

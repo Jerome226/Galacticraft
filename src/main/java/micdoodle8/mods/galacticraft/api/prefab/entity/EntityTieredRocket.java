@@ -1,5 +1,8 @@
 package micdoodle8.mods.galacticraft.api.prefab.entity;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 import cpw.mods.fml.common.FMLCommonHandler;
 import io.netty.buffer.ByteBuf;
 import micdoodle8.mods.galacticraft.api.entity.ICameraZoomEntity;
@@ -28,9 +31,6 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.WorldServer;
-
-import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
  * Do not include this prefab class in your released mod download.

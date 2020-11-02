@@ -1,5 +1,7 @@
 package micdoodle8.mods.galacticraft.planets.mars.entities;
 
+import java.util.List;
+
 import micdoodle8.mods.galacticraft.api.prefab.entity.EntityTieredRocket;
 import micdoodle8.mods.galacticraft.api.prefab.world.gen.WorldProviderSpace;
 import micdoodle8.mods.galacticraft.api.tile.IFuelDock;
@@ -18,8 +20,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
-
-import java.util.List;
 
 public class EntityTier2Rocket extends EntityTieredRocket
 {

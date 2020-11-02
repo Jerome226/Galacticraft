@@ -1,5 +1,9 @@
 package micdoodle8.mods.galacticraft.api.prefab.entity;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.network.ByteBufUtils;
@@ -45,9 +49,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.FluidStack;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
 
 /**
  * Do not include this prefab class in your released mod download.
@@ -523,7 +524,8 @@ public abstract class EntityAutoRocket extends EntitySpaceshipBase implements IL
 
     public abstract boolean isPlayerRocket();
 
-    public void landEntity(int x, int y, int z)
+    @Override
+	public void landEntity(int x, int y, int z)
     {
         TileEntity tile = this.worldObj.getTileEntity(x, y, z);
 
@@ -1350,13 +1352,15 @@ public abstract class EntityAutoRocket extends EntitySpaceshipBase implements IL
         }
     }
 
-    @SideOnly(Side.CLIENT)
+    @Override
+	@SideOnly(Side.CLIENT)
     public IUpdatePlayerListBox getSoundUpdater()
     {
     	return this.rocketSoundUpdater;
     }
     
-    @SideOnly(Side.CLIENT)
+    @Override
+	@SideOnly(Side.CLIENT)
     public ISound setSoundUpdater(EntityPlayerSP player)
     {
     	this.rocketSoundUpdater = new SoundUpdaterRocket(player, this);

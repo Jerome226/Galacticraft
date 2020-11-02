@@ -1,5 +1,7 @@
 package micdoodle8.mods.galacticraft.planets.asteroids.client.fx;
 
+import java.lang.ref.WeakReference;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import micdoodle8.mods.galacticraft.api.vector.Vector3;
@@ -7,8 +9,6 @@ import micdoodle8.mods.galacticraft.planets.asteroids.tile.TileEntityShortRangeT
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.world.World;
-
-import java.lang.ref.WeakReference;
 
 @SideOnly(Side.CLIENT)
 public class EntityFXTeleport extends EntityFX
@@ -37,7 +37,8 @@ public class EntityFXTeleport extends EntityFX
         this.direction = direction;
     }
 
-    public void renderParticle(Tessellator par1Tessellator, float par2, float par3, float par4, float par5, float par6, float par7)
+    @Override
+	public void renderParticle(Tessellator par1Tessellator, float par2, float par3, float par4, float par5, float par6, float par7)
     {
         float f6 = (this.particleAge + par2) / this.particleMaxAge;
         f6 = 1.0F - f6;
@@ -47,7 +48,8 @@ public class EntityFXTeleport extends EntityFX
         super.renderParticle(par1Tessellator, par2, par3, par4, par5, par6, par7);
     }
 
-    public int getBrightnessForRender(float par1)
+    @Override
+	public int getBrightnessForRender(float par1)
     {
         int i = super.getBrightnessForRender(par1);
         float f1 = (float) this.particleAge / (float) this.particleMaxAge;
@@ -65,7 +67,8 @@ public class EntityFXTeleport extends EntityFX
         return j | k << 16;
     }
 
-    public float getBrightness(float par1)
+    @Override
+	public float getBrightness(float par1)
     {
         float f1 = super.getBrightness(par1);
         float f2 = (float) this.particleAge / (float) this.particleMaxAge;
@@ -73,7 +76,8 @@ public class EntityFXTeleport extends EntityFX
         return f1 * (1.0F - f2) + f2;
     }
 
-    public void onUpdate()
+    @Override
+	public void onUpdate()
     {
         TileEntityShortRangeTelepad telepad1 = this.telepad.get();
 

@@ -1,5 +1,7 @@
 package micdoodle8.mods.galacticraft.planets.asteroids.client.gui;
 
+import org.lwjgl.opengl.GL11;
+
 import galaxyspace.GalaxySpace;
 import micdoodle8.mods.galacticraft.api.recipe.ISchematicResultPage;
 import micdoodle8.mods.galacticraft.api.recipe.SchematicRegistry;
@@ -12,8 +14,6 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-
-import org.lwjgl.opengl.GL11;
 
 public class GuiSchematicAstroMiner extends GuiContainer implements ISchematicResultPage
 {

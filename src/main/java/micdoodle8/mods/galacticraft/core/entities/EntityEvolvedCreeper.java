@@ -1,12 +1,22 @@
 package micdoodle8.mods.galacticraft.core.entities;
 
+import java.util.UUID;
+
 import micdoodle8.mods.galacticraft.api.entity.IEntityBreathable;
 import micdoodle8.mods.galacticraft.core.items.GCItems;
 import micdoodle8.mods.galacticraft.core.util.ConfigManagerCore;
 import micdoodle8.mods.galacticraft.core.util.VersionUtil;
 import micdoodle8.mods.galacticraft.core.util.WorldUtil;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.*;
+import net.minecraft.entity.ai.EntityAIAttackOnCollide;
+import net.minecraft.entity.ai.EntityAIAvoidEntity;
+import net.minecraft.entity.ai.EntityAICreeperSwell;
+import net.minecraft.entity.ai.EntityAIHurtByTarget;
+import net.minecraft.entity.ai.EntityAILookIdle;
+import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.ai.EntityAISwimming;
+import net.minecraft.entity.ai.EntityAIWander;
+import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.monster.EntityCreeper;
@@ -21,8 +31,6 @@ import net.minecraft.potion.Potion;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
-
-import java.util.UUID;
 
 public class EntityEvolvedCreeper extends EntityCreeper implements IEntityBreathable
 {
@@ -47,7 +55,8 @@ public class EntityEvolvedCreeper extends EntityCreeper implements IEntityBreath
         this.setSize(0.7F, 2.2F);
     }
 
-    protected void entityInit()
+    @Override
+	protected void entityInit()
     {
         super.entityInit();
         this.getDataWatcher().addObject(12, Byte.valueOf((byte) 0));
@@ -94,7 +103,8 @@ public class EntityEvolvedCreeper extends EntityCreeper implements IEntityBreath
         this.setCreeperScale(isChild ? 0.5F : 1.0F);
     }
 
-    protected final void setSize(float sizeX, float sizeY)
+    @Override
+	protected final void setSize(float sizeX, float sizeY)
     {
         boolean flag = this.sizeXBase > 0.0F && this.sizeYBase > 0.0F;
         this.sizeXBase = sizeX;
@@ -112,12 +122,14 @@ public class EntityEvolvedCreeper extends EntityCreeper implements IEntityBreath
         //FMLLog.info("" + this.sizeYBase + " " + scale);
     }
 
-    public boolean isChild()
+    @Override
+	public boolean isChild()
     {
         return this.getDataWatcher().getWatchableObjectByte(12) == 1;
     }
 
-    protected int getExperiencePoints(EntityPlayer p_70693_1_)
+    @Override
+	protected int getExperiencePoints(EntityPlayer p_70693_1_)
     {
         if (this.isChild())
         {

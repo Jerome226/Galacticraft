@@ -1,8 +1,27 @@
 package micdoodle8.mods.galacticraft.core.blocks;
 
+import java.util.ArrayList;
+
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
-import micdoodle8.mods.galacticraft.core.items.*;
+import micdoodle8.mods.galacticraft.core.items.ItemBlockAirLock;
+import micdoodle8.mods.galacticraft.core.items.ItemBlockAluminumWire;
+import micdoodle8.mods.galacticraft.core.items.ItemBlockArclamp;
+import micdoodle8.mods.galacticraft.core.items.ItemBlockBase;
+import micdoodle8.mods.galacticraft.core.items.ItemBlockCargoLoader;
+import micdoodle8.mods.galacticraft.core.items.ItemBlockCheese;
+import micdoodle8.mods.galacticraft.core.items.ItemBlockDesc;
+import micdoodle8.mods.galacticraft.core.items.ItemBlockDummy;
+import micdoodle8.mods.galacticraft.core.items.ItemBlockEnclosed;
+import micdoodle8.mods.galacticraft.core.items.ItemBlockGC;
+import micdoodle8.mods.galacticraft.core.items.ItemBlockLandingPad;
+import micdoodle8.mods.galacticraft.core.items.ItemBlockMachine;
+import micdoodle8.mods.galacticraft.core.items.ItemBlockMoon;
+import micdoodle8.mods.galacticraft.core.items.ItemBlockOxygenCompressor;
+import micdoodle8.mods.galacticraft.core.items.ItemBlockSlabGC;
+import micdoodle8.mods.galacticraft.core.items.ItemBlockSolar;
+import micdoodle8.mods.galacticraft.core.items.ItemBlockThruster;
+import micdoodle8.mods.galacticraft.core.items.ItemBlockWallGC;
 import micdoodle8.mods.galacticraft.core.util.GCCoreUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
@@ -11,8 +30,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
-
-import java.util.ArrayList;
 
 public class GCBlocks
 {

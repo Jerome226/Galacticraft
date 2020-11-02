@@ -1,5 +1,22 @@
 package micdoodle8.mods.galacticraft.core.client.gui.screen;
 
+import java.nio.FloatBuffer;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import org.lwjgl.BufferUtils;
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.input.Mouse;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.util.vector.Matrix4f;
+import org.lwjgl.util.vector.Vector2f;
+import org.lwjgl.util.vector.Vector3f;
+import org.lwjgl.util.vector.Vector4f;
+
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.ibm.icu.text.ArabicShaping;
@@ -9,7 +26,14 @@ import com.ibm.icu.text.Bidi;
 import cpw.mods.fml.client.FMLClientHandler;
 import micdoodle8.mods.galacticraft.api.GalacticraftRegistry;
 import micdoodle8.mods.galacticraft.api.event.client.CelestialBodyRenderEvent;
-import micdoodle8.mods.galacticraft.api.galaxies.*;
+import micdoodle8.mods.galacticraft.api.galaxies.CelestialBody;
+import micdoodle8.mods.galacticraft.api.galaxies.GalaxyRegistry;
+import micdoodle8.mods.galacticraft.api.galaxies.IChildBody;
+import micdoodle8.mods.galacticraft.api.galaxies.Moon;
+import micdoodle8.mods.galacticraft.api.galaxies.Planet;
+import micdoodle8.mods.galacticraft.api.galaxies.Satellite;
+import micdoodle8.mods.galacticraft.api.galaxies.SolarSystem;
+import micdoodle8.mods.galacticraft.api.galaxies.Star;
 import micdoodle8.mods.galacticraft.api.recipe.SpaceStationRecipe;
 import micdoodle8.mods.galacticraft.api.world.SpaceStationType;
 import micdoodle8.mods.galacticraft.core.GalacticraftCore;
@@ -28,23 +52,12 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.settings.GameSettings;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatAllowedCharacters;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.WorldProvider;
 import net.minecraftforge.common.MinecraftForge;
-
-import org.lwjgl.BufferUtils;
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.util.vector.Matrix4f;
-import org.lwjgl.util.vector.Vector2f;
-import org.lwjgl.util.vector.Vector3f;
-import org.lwjgl.util.vector.Vector4f;
-
-import java.nio.FloatBuffer;
-import java.util.*;
 
 public class GuiCelestialSelection extends GuiScreen
 {
@@ -535,25 +548,25 @@ public class GuiCelestialSelection extends GuiScreen
         
         if (!this.renamingSpaceStation && (this.selectedBody == null || this.selectionCount < 2))
         {
-            if (mc.gameSettings.isKeyDown(KeyHandlerClient.leftKey))
+            if (GameSettings.isKeyDown(KeyHandlerClient.leftKey))
             {
             	translation.x += -2.0F;
             	translation.y += -2.0F;
             }
             
-            if (mc.gameSettings.isKeyDown(KeyHandlerClient.rightKey))
+            if (GameSettings.isKeyDown(KeyHandlerClient.rightKey))
             {
             	translation.x += 2.0F;
             	translation.y += 2.0F;
             }
             
-            if (mc.gameSettings.isKeyDown(KeyHandlerClient.upKey))
+            if (GameSettings.isKeyDown(KeyHandlerClient.upKey))
             {
             	translation.x += 2.0F;
             	translation.y += -2.0F;
             }
             
-            if (mc.gameSettings.isKeyDown(KeyHandlerClient.downKey))
+            if (GameSettings.isKeyDown(KeyHandlerClient.downKey))
             {
             	translation.x += -2.0F;
             	translation.y += 2.0F;
@@ -1116,7 +1129,7 @@ public class GuiCelestialSelection extends GuiScreen
                 this.mc.renderEngine.bindTexture(GuiCelestialSelection.guiMain0);
                 float colMod = this.getZoomAdvanced() < 4.9F ? (float) (Math.sin(this.ticksSinceSelection / 2.0F) * 0.5F + 0.5F) : 1.0F;
                 GL11.glColor4f(1.0F, 1.0F, 0.0F, 1 * colMod);
-                int width = this.getWidthForCelestialBodyStatic(this.selectedBody);
+                int width = GuiCelestialSelection.getWidthForCelestialBodyStatic(this.selectedBody);
                 if (this.selectionCount == 1)
                 {
                 	width /= 2;
@@ -1268,7 +1281,7 @@ public class GuiCelestialSelection extends GuiScreen
 
                     if (!preEvent.isCanceled())
                     {
-                        int size = this.getWidthForCelestialBodyStatic(star);
+                        int size = GuiCelestialSelection.getWidthForCelestialBodyStatic(star);
                         if (star == this.selectedBody && this.selectionCount == 1)
                         {
                         	size /= 2;
@@ -1333,7 +1346,7 @@ public class GuiCelestialSelection extends GuiScreen
 
                     if (!preEvent.isCanceled())
                     {
-                        int size = this.getWidthForCelestialBodyStatic(planet);
+                        int size = GuiCelestialSelection.getWidthForCelestialBodyStatic(planet);
                         this.drawTexturedModalRect(-size / 2, -size / 2, size, size, 0, 0, preEvent.textureSize, preEvent.textureSize, false, false, preEvent.textureSize, preEvent.textureSize);
                         matrixMap.put(planet, worldMatrix1);
                     }
@@ -1381,7 +1394,7 @@ public class GuiCelestialSelection extends GuiScreen
 
                     if (!preEvent.isCanceled())
                     {
-                        int size = this.getWidthForCelestialBodyStatic(moon);
+                        int size = GuiCelestialSelection.getWidthForCelestialBodyStatic(moon);
                         this.drawTexturedModalRect(-size / 2, -size / 2, size, size, 0, 0, preEvent.textureSize, preEvent.textureSize, false, false, preEvent.textureSize, preEvent.textureSize);
                         matrixMap.put(moon, worldMatrix1);
                     }
@@ -1427,7 +1440,7 @@ public class GuiCelestialSelection extends GuiScreen
 
                         if (!preEvent.isCanceled())
                         {
-                            int size = this.getWidthForCelestialBodyStatic(satellite);
+                            int size = GuiCelestialSelection.getWidthForCelestialBodyStatic(satellite);
                             this.drawTexturedModalRect(-size / 2, -size / 2, size, size, 0, 0, preEvent.textureSize, preEvent.textureSize, false, false, preEvent.textureSize, preEvent.textureSize);
                             matrixMap.put(satellite, worldMatrix1);
                         }
@@ -1759,7 +1772,7 @@ public class GuiCelestialSelection extends GuiScreen
                             {
                                 int amount = getAmountInInventory((ItemStack) next);
                                 RenderHelper.enableGUIStandardItemLighting();
-                                GuiCelestialSelection.itemRender.renderItemAndEffectIntoGUI(this.fontRendererObj, this.mc.renderEngine, ((ItemStack) next).copy(), xPos, yPos);
+                                GuiScreen.itemRender.renderItemAndEffectIntoGUI(this.fontRendererObj, this.mc.renderEngine, ((ItemStack) next).copy(), xPos, yPos);
                                 RenderHelper.disableStandardItemLighting();
                                 GL11.glEnable(GL11.GL_BLEND);
 
@@ -1824,7 +1837,7 @@ public class GuiCelestialSelection extends GuiScreen
 
                                 RenderHelper.enableGUIStandardItemLighting();
                                 ItemStack stack = items.get((this.ticksSinceMenuOpen / 20) % items.size()).copy();
-                                GuiCelestialSelection.itemRender.renderItemAndEffectIntoGUI(this.fontRendererObj, this.mc.renderEngine, stack, xPos, yPos);
+                                GuiScreen.itemRender.renderItemAndEffectIntoGUI(this.fontRendererObj, this.mc.renderEngine, stack, xPos, yPos);
                                 RenderHelper.disableStandardItemLighting();
                                 GL11.glEnable(GL11.GL_BLEND);
 

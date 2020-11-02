@@ -2,6 +2,10 @@ package micdoodle8.mods.galacticraft.core.client.gui.screen;
 
 import java.nio.DoubleBuffer;
 
+import org.lwjgl.BufferUtils;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL12;
+
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -31,10 +35,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.World;
 
-import org.lwjgl.BufferUtils;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
-
 public class GameScreenText implements IGameScreen
 {
     private float frameA;
@@ -51,11 +51,13 @@ public class GameScreenText implements IGameScreen
 		}
     }
     
+	@Override
 	public void setFrameSize(float frameSize)
 	{
 		this.frameA = frameSize;
 	}
 
+	@Override
 	@SideOnly(Side.CLIENT)
 	public void render(int type, float ticks, float sizeX, float sizeY, IScreenManager scr)
     {

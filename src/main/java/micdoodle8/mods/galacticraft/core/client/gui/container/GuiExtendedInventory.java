@@ -1,5 +1,9 @@
 package micdoodle8.mods.galacticraft.core.client.gui.container;
 
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL12;
+
+import cpw.mods.fml.common.Loader;
 import micdoodle8.mods.galacticraft.core.GalacticraftCore;
 import micdoodle8.mods.galacticraft.core.client.gui.screen.InventoryTabGalacticraft;
 import micdoodle8.mods.galacticraft.core.inventory.ContainerExtendedInventory;
@@ -12,11 +16,6 @@ import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
-
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
-
-import cpw.mods.fml.common.Loader;
 import tconstruct.client.tabs.AbstractTab;
 import tconstruct.client.tabs.TabRegistry;
 
@@ -127,7 +126,7 @@ public class GuiExtendedInventory extends InventoryEffectRenderer
         par0Minecraft.thePlayer.rotationYaw = (float) Math.atan(par4 / 40.0F) * 40.0F;
         par0Minecraft.thePlayer.rotationYaw = GuiExtendedInventory.rotation;
         par0Minecraft.thePlayer.rotationYawHead = par0Minecraft.thePlayer.rotationYaw;
-        par0Minecraft.thePlayer.rotationPitch = (float)Math.sin(par0Minecraft.getSystemTime() / 500.0F) * 3.0F;
+        par0Minecraft.thePlayer.rotationPitch = (float)Math.sin(Minecraft.getSystemTime() / 500.0F) * 3.0F;
         GL11.glTranslatef(0.0F, par0Minecraft.thePlayer.yOffset, 0.0F);
         RenderManager.instance.playerViewY = 180.0F;
         RenderManager.instance.renderEntityWithPosYaw(par0Minecraft.thePlayer, 0.0D, 0.0D, 0.0D, 0.0F, 1.0F);

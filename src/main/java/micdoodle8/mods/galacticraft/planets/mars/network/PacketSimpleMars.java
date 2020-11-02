@@ -1,5 +1,9 @@
 package micdoodle8.mods.galacticraft.planets.mars.network;
 
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -25,10 +29,6 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraftforge.common.MinecraftForge;
-
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
 
 public class PacketSimpleMars implements IPacket
 {

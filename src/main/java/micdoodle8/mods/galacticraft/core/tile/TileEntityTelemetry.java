@@ -1,5 +1,9 @@
 package micdoodle8.mods.galacticraft.core.tile;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.UUID;
+
 import com.mojang.authlib.GameProfile;
 
 import cpw.mods.fml.common.network.NetworkRegistry.TargetPoint;
@@ -29,10 +33,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.WorldProvider;
-
-import java.util.HashSet;
-import java.util.List;
-import java.util.UUID;
 
 public class TileEntityTelemetry extends TileEntity
 {   

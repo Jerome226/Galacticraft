@@ -1,5 +1,9 @@
 package micdoodle8.mods.galacticraft.core.tile;
 
+import java.util.EnumSet;
+import java.util.HashSet;
+import java.util.List;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import io.netty.buffer.ByteBuf;
@@ -22,10 +26,6 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import java.util.EnumSet;
-import java.util.HashSet;
-import java.util.List;
 
 public class TileEntityOxygenDistributor extends TileEntityOxygen implements IInventory, ISidedInventory, IBubbleProvider
 {
@@ -93,7 +93,8 @@ public class TileEntityOxygenDistributor extends TileEntityOxygen implements IIn
         return 64.0F;
     }
 
-    public void addExtraNetworkedData(List<Object> networkedList)
+    @Override
+	public void addExtraNetworkedData(List<Object> networkedList)
     {
         if (!this.worldObj.isRemote && !this.isInvalid())
         {
@@ -158,7 +159,7 @@ public class TileEntityOxygenDistributor extends TileEntityOxygen implements IIn
 	            	int i3 = dataStream.readInt();
 	            	int i4 = dataStream.readInt();
 	            	if (i1 == -1 && i2 == -1 && i3 == -1 && i4 == -1) continue;
-	            	this.loadedTiles.add(new BlockVec3Dim(i1, i2, i3, i4));
+	            	TileEntityOxygenDistributor.loadedTiles.add(new BlockVec3Dim(i1, i2, i3, i4));
 	            }
             }
             this.bubbleSize = dataStream.readFloat();

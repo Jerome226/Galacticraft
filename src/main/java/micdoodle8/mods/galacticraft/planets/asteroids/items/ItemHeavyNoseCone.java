@@ -32,7 +32,8 @@ public class ItemHeavyNoseCone extends Item
         return true;
     }
 
-    @SideOnly(Side.CLIENT)
+    @Override
+	@SideOnly(Side.CLIENT)
     public IIcon getIconFromDamageForRenderPass(int par1, int par2)
     {
         return par2 == 0 ? this.icons[0] : this.icons[1];

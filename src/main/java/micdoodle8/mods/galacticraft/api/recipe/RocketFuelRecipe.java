@@ -1,7 +1,7 @@
 package micdoodle8.mods.galacticraft.api.recipe;
 
 import java.util.ArrayList;
-import micdoodle8.mods.galacticraft.api.recipe.RocketFuel;
+
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;

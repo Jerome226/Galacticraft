@@ -1,5 +1,9 @@
 package micdoodle8.mods.galacticraft.planets.asteroids.tile;
 
+import java.util.EnumSet;
+import java.util.List;
+import java.util.Random;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import io.netty.buffer.ByteBuf;
@@ -31,10 +35,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import java.util.EnumSet;
-import java.util.List;
-import java.util.Random;
 
 public class TileEntityShortRangeTelepad extends TileBaseElectricBlock implements IMultiBlock, IInventory, ISidedInventory
 {

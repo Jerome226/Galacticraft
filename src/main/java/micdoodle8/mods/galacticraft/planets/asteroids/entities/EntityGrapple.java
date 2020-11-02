@@ -1,5 +1,7 @@
 package micdoodle8.mods.galacticraft.planets.asteroids.entities;
 
+import java.util.List;
+
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -23,8 +25,6 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
-
-import java.util.List;
 
 public class EntityGrapple extends Entity implements IProjectile
 {
@@ -111,7 +111,8 @@ public class EntityGrapple extends Entity implements IProjectile
         this.setRotation(par7, par8);
     }
 
-    public void setPosition(double x, double y, double z)
+    @Override
+	public void setPosition(double x, double y, double z)
     {
         super.setPosition(x, y, z);
     }

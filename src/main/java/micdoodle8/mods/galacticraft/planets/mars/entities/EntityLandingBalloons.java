@@ -1,5 +1,9 @@
 package micdoodle8.mods.galacticraft.planets.mars.entities;
 
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.Random;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import io.netty.buffer.ByteBuf;
@@ -15,10 +19,6 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
-
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.Random;
 
 public class EntityLandingBalloons extends EntityLanderBase implements IIgnoreShift, ICameraZoomEntity
 {

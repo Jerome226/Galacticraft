@@ -3,6 +3,8 @@ package micdoodle8.mods.galacticraft.core.client.gui.container;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.lwjgl.opengl.GL11;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import micdoodle8.mods.galacticraft.core.GalacticraftCore;
@@ -13,7 +15,6 @@ import micdoodle8.mods.galacticraft.core.util.EnumColor;
 import micdoodle8.mods.galacticraft.core.util.GCCoreUtil;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
 public class GuiIngotCompressor extends GuiContainerGC
@@ -86,7 +87,7 @@ public class GuiIngotCompressor extends GuiContainerGC
 
         if (this.tileEntity.processTicks > 0)
         {
-        	process = (int) ((double) this.tileEntity.processTicks / (double) this.tileEntity.PROCESS_TIME_REQUIRED * 100);
+        	process = (int) ((double) this.tileEntity.processTicks / (double) TileEntityIngotCompressor.PROCESS_TIME_REQUIRED * 100);
         }
         else
         {

@@ -1,10 +1,18 @@
 package micdoodle8.mods.galacticraft.core.energy;
 
+import java.lang.reflect.Method;
+import java.util.List;
+
 import cofh.api.energy.IEnergyConnection;
 import cofh.api.energy.IEnergyHandler;
 import cofh.api.energy.IEnergyProvider;
 import cofh.api.energy.IEnergyReceiver;
-import ic2.api.energy.tile.*;
+import ic2.api.energy.tile.IEnergyAcceptor;
+import ic2.api.energy.tile.IEnergyConductor;
+import ic2.api.energy.tile.IEnergyEmitter;
+import ic2.api.energy.tile.IEnergySink;
+import ic2.api.energy.tile.IEnergySource;
+import ic2.api.energy.tile.IEnergyTile;
 import micdoodle8.mods.galacticraft.api.transmission.NetworkType;
 import micdoodle8.mods.galacticraft.api.transmission.tile.IConductor;
 import micdoodle8.mods.galacticraft.api.transmission.tile.IConnector;
@@ -18,9 +26,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import java.lang.reflect.Method;
-import java.util.List;
 
 public class EnergyUtil
 {
@@ -186,7 +191,7 @@ public class EnergyUtil
                 {
                     continue;
                 }
-                if (((IEnergyAcceptor) tileEntity).acceptsEnergyFrom((TileEntity) conductor, sideFrom))
+                if (((IEnergyAcceptor) tileEntity).acceptsEnergyFrom(conductor, sideFrom))
                 {
                     acceptors.add(tileEntity);
                     directions.add(sideFrom);

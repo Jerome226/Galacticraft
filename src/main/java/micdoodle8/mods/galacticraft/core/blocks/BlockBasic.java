@@ -1,5 +1,8 @@
 package micdoodle8.mods.galacticraft.core.blocks;
 
+import java.util.List;
+import java.util.Random;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import micdoodle8.mods.galacticraft.api.block.IDetectableResource;
@@ -15,9 +18,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
-
-import java.util.List;
-import java.util.Random;
 
 /**
  * Metadata: 3 = Tin Decoration Block 1 4 = Tin Decoration Block 2 5 = Copper

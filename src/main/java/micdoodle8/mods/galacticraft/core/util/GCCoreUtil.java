@@ -1,5 +1,8 @@
 package micdoodle8.mods.galacticraft.core.util;
 
+import java.util.Arrays;
+import java.util.List;
+
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
@@ -22,9 +25,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.launchwrapper.Launch;
 import net.minecraft.util.StatCollector;
-
-import java.util.Arrays;
-import java.util.List;
 
 public class GCCoreUtil
 {

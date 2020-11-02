@@ -1,5 +1,7 @@
 package micdoodle8.mods.galacticraft.core.client.render.entities;
 
+import org.lwjgl.opengl.GL11;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import micdoodle8.mods.galacticraft.core.GalacticraftCore;
@@ -8,7 +10,6 @@ import micdoodle8.mods.galacticraft.core.entities.EntityParachest;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
 public class RenderParaChest extends Render

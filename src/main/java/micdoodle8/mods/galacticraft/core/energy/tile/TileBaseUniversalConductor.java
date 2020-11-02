@@ -1,5 +1,7 @@
 package micdoodle8.mods.galacticraft.core.energy.tile;
 
+import java.lang.reflect.Constructor;
+
 import cpw.mods.fml.common.eventhandler.Event;
 import ic2.api.energy.tile.IEnergySource;
 import micdoodle8.mods.galacticraft.api.transmission.tile.IConductor;
@@ -12,11 +14,8 @@ import micdoodle8.mods.miccore.Annotations.RuntimeInterface;
 import micdoodle8.mods.miccore.Annotations.VersionSpecific;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
-import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import java.lang.reflect.Constructor;
 
 public abstract class TileBaseUniversalConductor extends TileBaseConductor
 {

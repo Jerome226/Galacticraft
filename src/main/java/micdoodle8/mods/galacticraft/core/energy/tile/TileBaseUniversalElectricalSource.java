@@ -1,5 +1,9 @@
 package micdoodle8.mods.galacticraft.core.energy.tile;
 
+import java.lang.reflect.Method;
+import java.util.EnumSet;
+
+import cofh.api.energy.IEnergyContainerItem;
 import micdoodle8.mods.galacticraft.api.item.ElectricItemHelper;
 import micdoodle8.mods.galacticraft.api.item.IItemElectric;
 import micdoodle8.mods.galacticraft.api.transmission.grid.IElectricityNetwork;
@@ -16,11 +20,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import java.lang.reflect.Method;
-import java.util.EnumSet;
-
-import cofh.api.energy.IEnergyContainerItem;
 
 public class TileBaseUniversalElectricalSource extends TileBaseUniversalElectrical
 {
@@ -237,7 +236,8 @@ public class TileBaseUniversalElectricalSource extends TileBaseUniversalElectric
         return this.tierGC + 1;
     }
 
-    @RuntimeInterface(clazz = "mekanism.api.energy.ICableOutputter", modID = "Mekanism")
+    @Override
+	@RuntimeInterface(clazz = "mekanism.api.energy.ICableOutputter", modID = "Mekanism")
     public boolean canOutputTo(ForgeDirection side)
     {
         return this.getElectricalOutputDirections().contains(side);
@@ -275,7 +275,8 @@ public class TileBaseUniversalElectricalSource extends TileBaseUniversalElectric
         return this.getElectricalOutputDirections().contains(side);
     }
     
-    @RuntimeInterface(clazz = "cofh.api.energy.IEnergyProvider", modID = "")
+    @Override
+	@RuntimeInterface(clazz = "cofh.api.energy.IEnergyProvider", modID = "")
     public int extractEnergy(ForgeDirection from, int maxExtract, boolean simulate)
     {
         if (EnergyConfigHandler.disableRFOutput)

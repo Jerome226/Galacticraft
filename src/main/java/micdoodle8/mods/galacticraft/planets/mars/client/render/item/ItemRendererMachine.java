@@ -1,5 +1,7 @@
 package micdoodle8.mods.galacticraft.planets.mars.client.render.item;
 
+import org.lwjgl.opengl.GL11;
+
 import cpw.mods.fml.client.FMLClientHandler;
 import micdoodle8.mods.galacticraft.planets.mars.MarsModule;
 import micdoodle8.mods.galacticraft.planets.mars.blocks.BlockMachineMars;
@@ -9,7 +11,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.model.IModelCustom;
-import org.lwjgl.opengl.GL11;
 
 public class ItemRendererMachine implements IItemRenderer
 {

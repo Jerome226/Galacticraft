@@ -10,7 +10,14 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIArrowAttack;
-import net.minecraft.entity.ai.*;
+import net.minecraft.entity.ai.EntityAIFleeSun;
+import net.minecraft.entity.ai.EntityAIHurtByTarget;
+import net.minecraft.entity.ai.EntityAILookIdle;
+import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.ai.EntityAIRestrictSun;
+import net.minecraft.entity.ai.EntityAISwimming;
+import net.minecraft.entity.ai.EntityAIWander;
+import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
@@ -53,7 +60,8 @@ public class EntityEvolvedSkeleton extends EntitySkeleton implements IEntityBrea
         return true;
     }
 
-    public void attackEntityWithRangedAttack(EntityLivingBase par1EntityLivingBase, float par2)
+    @Override
+	public void attackEntityWithRangedAttack(EntityLivingBase par1EntityLivingBase, float par2)
     {
     	EntityArrow entityarrow = new EntityArrow(this.worldObj, this, par1EntityLivingBase, 0.4F, 17 - this.worldObj.difficultySetting.getDifficultyId() * 4);
         int i = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, this.getHeldItem());
@@ -135,7 +143,8 @@ public class EntityEvolvedSkeleton extends EntitySkeleton implements IEntityBrea
         }
     }
     
-    protected void dropFewItems(boolean p_70628_1_, int p_70628_2_)
+    @Override
+	protected void dropFewItems(boolean p_70628_1_, int p_70628_2_)
     {
         Item item = this.getDropItem();
 

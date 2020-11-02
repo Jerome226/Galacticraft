@@ -1,5 +1,10 @@
 package micdoodle8.mods.galacticraft.planets.asteroids.client.gui;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.lwjgl.opengl.GL11;
+
 import micdoodle8.mods.galacticraft.core.GalacticraftCore;
 import micdoodle8.mods.galacticraft.core.client.gui.container.GuiCargoLoader;
 import micdoodle8.mods.galacticraft.core.client.gui.container.GuiContainerGC;
@@ -19,11 +24,6 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
-
-import org.lwjgl.opengl.GL11;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class GuiAstroMinerDock extends GuiContainerGC
 {
@@ -183,10 +183,10 @@ public class GuiAstroMinerDock extends GuiContainerGC
         OpenGlHelper.glBlendFunc(770, 771, 1, 0);
         tessellator.startDrawingQuads();
         tessellator.setColorOpaque_I(color);
-        tessellator.addVertex((double)(p_73729_1_ + 0), (double)(p_73729_2_ + p_73729_6_), (double)this.zLevel);
-        tessellator.addVertex((double)(p_73729_1_ + p_73729_5_), (double)(p_73729_2_ + p_73729_6_), (double)this.zLevel);
-        tessellator.addVertex((double)(p_73729_1_ + p_73729_5_), (double)(p_73729_2_ + 0), (double)this.zLevel);
-        tessellator.addVertex((double)(p_73729_1_ + 0), (double)(p_73729_2_ + 0), (double)this.zLevel);
+        tessellator.addVertex(p_73729_1_ + 0, p_73729_2_ + p_73729_6_, this.zLevel);
+        tessellator.addVertex(p_73729_1_ + p_73729_5_, p_73729_2_ + p_73729_6_, this.zLevel);
+        tessellator.addVertex(p_73729_1_ + p_73729_5_, p_73729_2_ + 0, this.zLevel);
+        tessellator.addVertex(p_73729_1_ + 0, p_73729_2_ + 0, this.zLevel);
         tessellator.draw();
         GL11.glEnable(GL11.GL_TEXTURE_2D);
         GL11.glDisable(GL11.GL_BLEND);

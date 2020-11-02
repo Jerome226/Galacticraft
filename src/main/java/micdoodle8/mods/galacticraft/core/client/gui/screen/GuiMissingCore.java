@@ -1,5 +1,7 @@
 package micdoodle8.mods.galacticraft.core.client.gui.screen;
 
+import java.net.URI;
+
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -9,8 +11,6 @@ import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.util.EnumChatFormatting;
-
-import java.net.URI;
 
 @SideOnly(Side.CLIENT)
 public class GuiMissingCore extends GuiScreen

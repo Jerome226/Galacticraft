@@ -15,7 +15,19 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.*;
+import net.minecraft.entity.ai.EntityAIAttackOnCollide;
+import net.minecraft.entity.ai.EntityAIFollowOwner;
+import net.minecraft.entity.ai.EntityAIHurtByTarget;
+import net.minecraft.entity.ai.EntityAILeapAtTarget;
+import net.minecraft.entity.ai.EntityAILookIdle;
+import net.minecraft.entity.ai.EntityAIMate;
+import net.minecraft.entity.ai.EntityAIOwnerHurtByTarget;
+import net.minecraft.entity.ai.EntityAIOwnerHurtTarget;
+import net.minecraft.entity.ai.EntityAISit;
+import net.minecraft.entity.ai.EntityAISwimming;
+import net.minecraft.entity.ai.EntityAITargetNonTamed;
+import net.minecraft.entity.ai.EntityAIWander;
+import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityGhast;
 import net.minecraft.entity.passive.EntityAnimal;
@@ -746,7 +758,8 @@ public class EntitySlimeling extends EntityTameable implements IEntityBreathable
             this.setMutexBits(5);
         }
 
-        public boolean shouldExecute()
+        @Override
+		public boolean shouldExecute()
         {
             if (!this.theEntity.isTamed())
             {
@@ -763,18 +776,21 @@ public class EntitySlimeling extends EntityTameable implements IEntityBreathable
             }
         }
 
-        public void startExecuting()
+        @Override
+		public void startExecuting()
         {
             this.theEntity.getNavigator().clearPathEntity();
             this.theEntity.setSitting(true);
         }
 
-        public void resetTask()
+        @Override
+		public void resetTask()
         {
             this.theEntity.setSitting(false);
         }
 
-        public void setSitting(boolean isSitting)
+        @Override
+		public void setSitting(boolean isSitting)
         {
             this.isSitting = isSitting;
         }

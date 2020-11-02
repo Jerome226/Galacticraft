@@ -1,11 +1,23 @@
 package micdoodle8.mods.galacticraft.core.client.gui.screen;
 
+import java.nio.DoubleBuffer;
+
+import org.lwjgl.BufferUtils;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.util.vector.Vector3f;
+
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.FMLCommonHandler;
 import micdoodle8.mods.galacticraft.api.client.IGameScreen;
 import micdoodle8.mods.galacticraft.api.client.IScreenManager;
 import micdoodle8.mods.galacticraft.api.event.client.CelestialBodyRenderEvent;
-import micdoodle8.mods.galacticraft.api.galaxies.*;
+import micdoodle8.mods.galacticraft.api.galaxies.CelestialBody;
+import micdoodle8.mods.galacticraft.api.galaxies.GalaxyRegistry;
+import micdoodle8.mods.galacticraft.api.galaxies.Moon;
+import micdoodle8.mods.galacticraft.api.galaxies.Planet;
+import micdoodle8.mods.galacticraft.api.galaxies.Satellite;
+import micdoodle8.mods.galacticraft.api.galaxies.SolarSystem;
+import micdoodle8.mods.galacticraft.api.galaxies.Star;
 import micdoodle8.mods.galacticraft.api.world.IGalacticraftWorldProvider;
 import micdoodle8.mods.galacticraft.core.GalacticraftCore;
 import micdoodle8.mods.galacticraft.core.client.render.RenderPlanet;
@@ -13,12 +25,6 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.world.WorldProvider;
 import net.minecraftforge.common.MinecraftForge;
-
-import org.lwjgl.BufferUtils;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.util.vector.Vector3f;
-
-import java.nio.DoubleBuffer;
 
 public class GameScreenCelestial implements IGameScreen
 {
@@ -47,12 +53,14 @@ public class GameScreenCelestial implements IGameScreen
 		}
     }
     
+	@Override
 	public void setFrameSize(float frameSize)
 	{
 		this.frameA = frameSize;
 	}
 
-    public void render(int type, float ticks, float scaleX, float scaleY, IScreenManager scr)
+    @Override
+	public void render(int type, float ticks, float scaleX, float scaleY, IScreenManager scr)
     {
     	centreX = scaleX / 2;
     	centreY = scaleY / 2;

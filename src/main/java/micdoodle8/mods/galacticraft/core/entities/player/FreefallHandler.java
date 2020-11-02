@@ -443,9 +443,9 @@ public class FreefallHandler {
             {
                 p.capabilities.isFlying = true;
                 //Half the normal acceleration in Creative mode
-                double dx = p.motionX - this.pPrevMotionX;
-                double dy = p.motionY - this.pPrevMotionY;
-                double dz = p.motionZ - this.pPrevMotionZ;
+                double dx = p.motionX - FreefallHandler.pPrevMotionX;
+                double dy = p.motionY - FreefallHandler.pPrevMotionY;
+                double dz = p.motionZ - FreefallHandler.pPrevMotionZ;
                 p.motionX -= dx / 2;
                 p.motionY -= dy / 2;
                 p.motionZ -= dz / 2;
@@ -484,7 +484,7 @@ public class FreefallHandler {
         else
         //Not freefall - within arm's length of something or jumping
         {
-            double dy = p.motionY - this.pPrevMotionY;
+            double dy = p.motionY - FreefallHandler.pPrevMotionY;
             //if (p.motionY < 0 && this.pPrevMotionY >= 0) p.posY -= p.motionY;
             //if (p.motionY != 0) p.motionY = this.pPrevMotionY;
             if (p.movementInput.jump)
@@ -527,8 +527,8 @@ public class FreefallHandler {
             spinManager.applyCentrifugalForce(p);
         }
 
-        this.pPrevMotionX = p.motionX;
-        this.pPrevMotionY = p.motionY;
-        this.pPrevMotionZ = p.motionZ;
+        FreefallHandler.pPrevMotionX = p.motionX;
+        FreefallHandler.pPrevMotionY = p.motionY;
+        FreefallHandler.pPrevMotionZ = p.motionZ;
     }
 }

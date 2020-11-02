@@ -1,5 +1,7 @@
 package micdoodle8.mods.galacticraft.core.client.render.entities;
 
+import org.lwjgl.opengl.GL11;
+
 import api.player.model.ModelPlayer;
 import api.player.render.RenderPlayerAPI;
 import api.player.render.RenderPlayerBase;
@@ -26,7 +28,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
-import org.lwjgl.opengl.GL11;
 
 public class RenderPlayerBaseGC extends RenderPlayerBase
 {
@@ -218,7 +219,7 @@ public class RenderPlayerBaseGC extends RenderPlayerBase
         {
         	if (par1AbstractClientPlayer instanceof EntityPlayer && Minecraft.getMinecraft().gameSettings.thirdPersonView != 0)
         	{
-                final EntityPlayer player = (EntityPlayer)par1AbstractClientPlayer;
+                final EntityPlayer player = par1AbstractClientPlayer;
 
                 if (player.ridingEntity instanceof ICameraZoomEntity)
                 {

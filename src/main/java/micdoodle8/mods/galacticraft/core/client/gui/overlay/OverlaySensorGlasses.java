@@ -1,5 +1,9 @@
 package micdoodle8.mods.galacticraft.core.client.gui.overlay;
 
+import java.util.Iterator;
+
+import org.lwjgl.opengl.GL11;
+
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -18,9 +22,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
-
-import java.util.Iterator;
 
 @SideOnly(Side.CLIENT)
 public class OverlaySensorGlasses extends Overlay

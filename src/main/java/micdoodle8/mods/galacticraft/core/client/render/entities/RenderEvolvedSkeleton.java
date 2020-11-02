@@ -1,5 +1,7 @@
 package micdoodle8.mods.galacticraft.core.client.render.entities;
 
+import org.lwjgl.opengl.GL11;
+
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -16,7 +18,6 @@ import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
 public class RenderEvolvedSkeleton extends RenderBiped
@@ -151,7 +152,8 @@ public class RenderEvolvedSkeleton extends RenderBiped
         return super.shouldRenderPass(par1EntityLiving, par2, par3);
     }
 
-    protected void renderEquippedItems(EntityLiving par1EntityLiving, float par2)
+    @Override
+	protected void renderEquippedItems(EntityLiving par1EntityLiving, float par2)
     {
         ItemStack stack = par1EntityLiving.getLastActiveItems()[0];
         par1EntityLiving.getLastActiveItems()[0] = null;

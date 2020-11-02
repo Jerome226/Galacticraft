@@ -1,5 +1,7 @@
 package micdoodle8.mods.galacticraft.core.energy.item;
 
+import java.util.List;
+
 import cpw.mods.fml.common.versioning.DefaultArtifactVersion;
 import cpw.mods.fml.common.versioning.VersionParser;
 import cpw.mods.fml.relauncher.FMLInjectionData;
@@ -21,8 +23,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagDouble;
 import net.minecraft.nbt.NBTTagFloat;
 import net.minecraft.world.World;
-
-import java.util.List;
 
 public abstract class ItemElectricBase extends Item implements IItemElectricBase
 {
@@ -58,7 +58,8 @@ public abstract class ItemElectricBase extends Item implements IItemElectricBase
         this.transferMax = 200;
     }
 
-    public float getMaxTransferGC(ItemStack itemStack)
+    @Override
+	public float getMaxTransferGC(ItemStack itemStack)
     {
         return this.transferMax;
     }

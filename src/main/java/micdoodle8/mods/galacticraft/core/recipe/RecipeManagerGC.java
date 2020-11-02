@@ -1,11 +1,15 @@
 package micdoodle8.mods.galacticraft.core.recipe;
 
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import appeng.api.AEApi;
+import appeng.api.definitions.Materials;
+import appeng.api.util.AEColor;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.ironchest.IronChest;
 import galaxyspace.core.register.GSItems;
-import gregtech.api.enums.Materials;
-import gregtech.api.enums.OrePrefixes;
-import gregtech.api.util.GT_OreDictUnificator;
 import micdoodle8.mods.galacticraft.api.GalacticraftRegistry;
 import micdoodle8.mods.galacticraft.api.recipe.CircuitFabricatorRecipes;
 import micdoodle8.mods.galacticraft.api.recipe.CompressorRecipes;
@@ -29,16 +33,8 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.FurnaceRecipes;
-import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
-
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.HashMap;
-
-import appeng.api.AEApi;
-import appeng.api.util.AEColor;
 
 public class RecipeManagerGC
 {

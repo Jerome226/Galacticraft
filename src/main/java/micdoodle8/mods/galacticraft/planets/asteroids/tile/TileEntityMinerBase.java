@@ -462,7 +462,8 @@ public class TileEntityMinerBase extends TileBaseElectricBlockWithInventory impl
     	return AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord, xCoord + 2, yCoord + 2, zCoord + 2);
     }
 
-    public void updateFacing()
+    @Override
+	public void updateFacing()
     {
     	if (this.isMaster && this.linkedMinerID == null)
     	{

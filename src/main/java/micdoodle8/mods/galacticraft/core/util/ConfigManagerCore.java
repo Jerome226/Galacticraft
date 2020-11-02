@@ -1,5 +1,15 @@
 package micdoodle8.mods.galacticraft.core.util;
 
+import static net.minecraftforge.common.config.Configuration.CATEGORY_GENERAL;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+import org.lwjgl.input.Keyboard;
+
 import com.google.common.primitives.Ints;
 
 import cpw.mods.fml.client.config.IConfigElement;
@@ -21,16 +31,6 @@ import net.minecraft.item.ItemBlock;
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
-
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
-import org.lwjgl.input.Keyboard;
-
-import static net.minecraftforge.common.config.Configuration.CATEGORY_GENERAL;
 
 public class ConfigManagerCore
 {

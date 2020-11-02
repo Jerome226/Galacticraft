@@ -1,5 +1,7 @@
 package micdoodle8.mods.galacticraft.core.client.render.block;
 
+import org.lwjgl.opengl.GL11;
+
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import micdoodle8.mods.galacticraft.api.tile.IFuelDock;
 import micdoodle8.mods.galacticraft.core.blocks.BlockLandingPadFull;
@@ -11,7 +13,6 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
-import org.lwjgl.opengl.GL11;
 
 public class BlockRendererLandingPad implements ISimpleBlockRenderingHandler
 {

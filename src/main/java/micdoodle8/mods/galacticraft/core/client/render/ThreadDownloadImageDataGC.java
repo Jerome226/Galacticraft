@@ -1,5 +1,18 @@
 package micdoodle8.mods.galacticraft.core.client.render;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import javax.imageio.ImageIO;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -8,17 +21,6 @@ import net.minecraft.client.renderer.texture.SimpleTexture;
 import net.minecraft.client.renderer.texture.TextureUtil;
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.util.ResourceLocation;
-import org.apache.commons.io.FileUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.concurrent.atomic.AtomicInteger;
 
 @SideOnly(Side.CLIENT)
 public class ThreadDownloadImageDataGC extends SimpleTexture
@@ -57,7 +59,8 @@ public class ThreadDownloadImageDataGC extends SimpleTexture
         }
     }
 
-    public int getGlTextureId()
+    @Override
+	public int getGlTextureId()
     {
         this.checkTextureUploaded();
         return super.getGlTextureId();
@@ -68,7 +71,8 @@ public class ThreadDownloadImageDataGC extends SimpleTexture
         this.bufferedImage = p_147641_1_;
     }
 
-    public void loadTexture(IResourceManager p_110551_1_)
+    @Override
+	public void loadTexture(IResourceManager p_110551_1_)
     {
         try
         {
@@ -114,7 +118,8 @@ public class ThreadDownloadImageDataGC extends SimpleTexture
     {
         this.imageThread = new Thread("Texture Downloader #" + threadDownloadCounter.incrementAndGet())
         {
-            public void run()
+            @Override
+			public void run()
             {
                 HttpURLConnection httpurlconnection = null;
                 FMLLog.fine("Downloading http texture from %s to %s", ThreadDownloadImageDataGC.this.imageUrl, ThreadDownloadImageDataGC.this.field_152434_e);

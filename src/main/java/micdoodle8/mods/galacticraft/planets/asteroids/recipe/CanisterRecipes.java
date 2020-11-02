@@ -1,5 +1,7 @@
 package micdoodle8.mods.galacticraft.planets.asteroids.recipe;
 
+import java.util.List;
+
 import micdoodle8.mods.galacticraft.core.items.GCItems;
 import micdoodle8.mods.galacticraft.core.items.ItemOxygenTank;
 import micdoodle8.mods.galacticraft.planets.asteroids.items.ItemCanisterLiquidOxygen;
@@ -8,8 +10,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.ShapelessRecipes;
 import net.minecraft.world.World;
-
-import java.util.List;
 
 public class CanisterRecipes extends ShapelessRecipes
 {
@@ -21,7 +21,8 @@ public class CanisterRecipes extends ShapelessRecipes
     /**
      * Used to check if a recipe matches current crafting inventory
      */
-    public boolean matches(InventoryCrafting p_77569_1_, World p_77569_2_)
+    @Override
+	public boolean matches(InventoryCrafting p_77569_1_, World p_77569_2_)
     {
         ItemStack itemCanister = null;
         ItemStack itemTank = null;
@@ -80,7 +81,8 @@ public class CanisterRecipes extends ShapelessRecipes
     /**
      * Returns an Item that is the result of this recipe
      */
-    public ItemStack getCraftingResult(InventoryCrafting inv)
+    @Override
+	public ItemStack getCraftingResult(InventoryCrafting inv)
     {
         ItemStack itemTank = null;
         ItemStack itemCanister = null;

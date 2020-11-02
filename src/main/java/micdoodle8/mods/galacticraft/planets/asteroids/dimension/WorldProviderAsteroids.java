@@ -1,5 +1,9 @@
 package micdoodle8.mods.galacticraft.planets.asteroids.dimension;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.TreeMap;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import micdoodle8.mods.galacticraft.api.galaxies.CelestialBody;
@@ -19,10 +23,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.world.biome.WorldChunkManager;
 import net.minecraft.world.chunk.IChunkProvider;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.TreeMap;
 
 public class WorldProviderAsteroids extends WorldProviderSpace implements ISolarLevel
 {
@@ -74,7 +74,8 @@ public class WorldProviderAsteroids extends WorldProviderSpace implements ISolar
         return 0;
     }
 
-    public boolean isDaytime()
+    @Override
+	public boolean isDaytime()
     {
         return true;
     }

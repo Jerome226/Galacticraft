@@ -1,5 +1,7 @@
 package micdoodle8.mods.galacticraft.core.blocks;
 
+import java.util.Random;
+
 import micdoodle8.mods.galacticraft.api.vector.Vector3;
 import micdoodle8.mods.galacticraft.core.GalacticraftCore;
 import micdoodle8.mods.galacticraft.core.items.GCItems;
@@ -21,7 +23,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import java.util.Random;
 
 public class BlockFallenMeteor extends Block implements ITileEntityProvider, ItemBlockDesc.IBlockShiftDesc
 {
@@ -213,7 +214,8 @@ public class BlockFallenMeteor extends Block implements ITileEntityProvider, Ite
         return true;
     }
 
-    public float getPlayerRelativeBlockHardness(EntityPlayer player, World world, int x, int y, int z)
+    @Override
+	public float getPlayerRelativeBlockHardness(EntityPlayer player, World world, int x, int y, int z)
     {
         int metadata = world.getBlockMetadata(x, y, z);
         float hardness = this.getBlockHardness(world, x, y, z);

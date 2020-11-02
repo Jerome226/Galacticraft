@@ -1,11 +1,20 @@
 package micdoodle8.mods.galacticraft.core.world.gen;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+
 import micdoodle8.mods.galacticraft.api.prefab.world.gen.MapGenBaseMeta;
 import micdoodle8.mods.galacticraft.core.blocks.GCBlocks;
 import micdoodle8.mods.galacticraft.core.perlin.NoiseModule;
 import micdoodle8.mods.galacticraft.core.perlin.generator.Gradient;
 import micdoodle8.mods.galacticraft.core.util.ConfigManagerCore;
-import micdoodle8.mods.galacticraft.core.world.gen.dungeon.*;
+import micdoodle8.mods.galacticraft.core.world.gen.dungeon.MapGenDungeon;
+import micdoodle8.mods.galacticraft.core.world.gen.dungeon.RoomBossMoon;
+import micdoodle8.mods.galacticraft.core.world.gen.dungeon.RoomChestsMoon;
+import micdoodle8.mods.galacticraft.core.world.gen.dungeon.RoomEmptyMoon;
+import micdoodle8.mods.galacticraft.core.world.gen.dungeon.RoomSpawnerMoon;
+import micdoodle8.mods.galacticraft.core.world.gen.dungeon.RoomTreasureMoon;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.entity.EnumCreatureType;
@@ -17,10 +26,6 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.ChunkProviderGenerate;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
 
 public class ChunkProviderMoon extends ChunkProviderGenerate
 {

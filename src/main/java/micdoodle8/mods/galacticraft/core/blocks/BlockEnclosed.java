@@ -1,5 +1,9 @@
 package micdoodle8.mods.galacticraft.core.blocks;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
+import java.util.List;
+
 import appeng.api.AEApi;
 import appeng.api.parts.IPartHelper;
 import cpw.mods.fml.relauncher.Side;
@@ -25,10 +29,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Method;
-import java.util.List;
 
 public class BlockEnclosed extends BlockContainer implements IPartialSealableBlock, ITileEntityProvider, ItemBlockDesc.IBlockShiftDesc
 {

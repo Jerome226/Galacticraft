@@ -1,6 +1,7 @@
 package micdoodle8.mods.galacticraft.core.entities.player;
 
 import com.mojang.authlib.GameProfile;
+
 import net.minecraft.client.entity.EntityOtherPlayerMP;
 import net.minecraft.world.World;
 

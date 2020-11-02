@@ -36,7 +36,8 @@ public class BlockBrightLamp extends BlockAdvanced implements ItemBlockDesc.IBlo
         this.setLightLevel(1.0F);
     }
 
-    public int getLightValue(IBlockAccess world, int x, int y, int z)
+    @Override
+	public int getLightValue(IBlockAccess world, int x, int y, int z)
     {
         Block block = world.getBlock(x, y, z);
         if (block != this)

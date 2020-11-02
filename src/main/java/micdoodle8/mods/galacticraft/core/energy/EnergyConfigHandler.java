@@ -1,13 +1,13 @@
 package micdoodle8.mods.galacticraft.core.energy;
 
-import cpw.mods.fml.common.Loader;
-import micdoodle8.mods.galacticraft.core.util.GCLog;
-import net.minecraftforge.common.config.Configuration;
-
 import java.io.File;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+
+import cpw.mods.fml.common.Loader;
+import micdoodle8.mods.galacticraft.core.util.GCLog;
+import net.minecraftforge.common.config.Configuration;
 
 /**
  * The universal energy compatibility module allows Galacticraft to be

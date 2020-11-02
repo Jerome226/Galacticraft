@@ -1,5 +1,9 @@
 package micdoodle8.mods.galacticraft.core.entities;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import micdoodle8.mods.galacticraft.api.entity.ICameraZoomEntity;
@@ -15,10 +19,6 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
 
 public class EntityLander extends EntityLanderBase implements IIgnoreShift, ICameraZoomEntity
 {

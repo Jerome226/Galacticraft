@@ -1,5 +1,9 @@
 package micdoodle8.mods.galacticraft.core.client.gui.screen;
 
+import java.nio.FloatBuffer;
+
+import org.lwjgl.opengl.GL11;
+
 import cpw.mods.fml.client.FMLClientHandler;
 import micdoodle8.mods.galacticraft.api.GalacticraftRegistry;
 import micdoodle8.mods.galacticraft.api.client.IScreenManager;
@@ -14,9 +18,6 @@ import net.minecraft.client.renderer.texture.TextureUtil;
 import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.WorldProvider;
-import org.lwjgl.opengl.GL11;
-
-import java.nio.FloatBuffer;
 
 public class DrawGameScreen extends IScreenManager
 {
@@ -63,7 +64,7 @@ public class DrawGameScreen extends IScreenManager
 
     private void makeMap()
     {
-    	if (this.mapDone || this.reusableMap == null || this.driver.getWorldObj().provider.dimensionId != 0) return;
+    	if (this.mapDone || DrawGameScreen.reusableMap == null || this.driver.getWorldObj().provider.dimensionId != 0) return;
     	this.localMap = new int[MapUtil.SIZE_STD2 * MapUtil.SIZE_STD2];
 		boolean result = MapUtil.getMap(this.localMap, this.driver.getWorldObj(), this.driver.xCoord, this.driver.zCoord);
 		if (result)

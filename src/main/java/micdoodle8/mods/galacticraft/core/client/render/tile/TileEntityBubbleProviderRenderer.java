@@ -1,5 +1,8 @@
 package micdoodle8.mods.galacticraft.core.client.render.tile;
 
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL12;
+
 import micdoodle8.mods.galacticraft.core.GalacticraftCore;
 import micdoodle8.mods.galacticraft.core.entities.IBubbleProvider;
 import net.minecraft.client.renderer.OpenGlHelper;
@@ -8,8 +11,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
 
 public class TileEntityBubbleProviderRenderer extends TileEntitySpecialRenderer
 {

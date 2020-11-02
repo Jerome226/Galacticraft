@@ -1,5 +1,8 @@
 package micdoodle8.mods.galacticraft.core.client.render.entities;
 
+import org.lwjgl.opengl.GL11;
+
+import cpw.mods.fml.common.Loader;
 import micdoodle8.mods.galacticraft.api.entity.ICameraZoomEntity;
 import micdoodle8.mods.galacticraft.api.world.IGalacticraftWorldProvider;
 import micdoodle8.mods.galacticraft.api.world.IZeroGDimension;
@@ -25,10 +28,6 @@ import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerEvent;
-
-import org.lwjgl.opengl.GL11;
-
-import cpw.mods.fml.common.Loader;
 
 /**
  * This renders the thermal armor (unless RenderPlayerAPI is installed).
@@ -237,7 +236,7 @@ public class RenderPlayerGC extends RenderPlayer
         {
           	if (Minecraft.getMinecraft().gameSettings.thirdPersonView != 0)
         	{
-                final EntityPlayer player = (EntityPlayer)par1AbstractClientPlayer;
+                final EntityPlayer player = par1AbstractClientPlayer;
 
                 if (player.ridingEntity instanceof ICameraZoomEntity)
                 {

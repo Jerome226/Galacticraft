@@ -1,13 +1,15 @@
 package micdoodle8.mods.galacticraft.core.nei;
 
+import java.util.HashMap;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import appeng.api.definitions.Materials;
 import codechicken.nei.PositionedStack;
 import codechicken.nei.api.API;
 import codechicken.nei.api.IConfigureNEI;
 import cpw.mods.ironchest.IronChest;
 import galaxyspace.core.register.GSItems;
-import gregtech.api.enums.Materials;
-import gregtech.api.enums.OrePrefixes;
-import gregtech.api.util.GT_OreDictUnificator;
 import micdoodle8.mods.galacticraft.api.recipe.CompressorRecipes;
 import micdoodle8.mods.galacticraft.core.Constants;
 import micdoodle8.mods.galacticraft.core.GalacticraftCore;
@@ -23,10 +25,6 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
-
-import java.util.HashMap;
-import java.util.Map.Entry;
-import java.util.Set;
 
 public class NEIGalacticraftConfig implements IConfigureNEI
 {

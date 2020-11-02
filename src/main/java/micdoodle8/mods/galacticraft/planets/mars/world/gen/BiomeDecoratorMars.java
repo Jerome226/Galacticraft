@@ -39,11 +39,13 @@ public class BiomeDecoratorMars extends BiomeDecoratorSpace
         if (!ConfigManagerMars.disableIronGen) this.generateOre(20, this.ironGen, 0, 64);
     }
     
-    protected void setCurrentWorld(World world)
+    @Override
+	protected void setCurrentWorld(World world)
     {
     	this.currentWorld = world;
     }
 
+	@Override
 	protected World getCurrentWorld()
 	{
 		return this.currentWorld;

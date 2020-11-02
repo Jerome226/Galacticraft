@@ -1,5 +1,9 @@
 package micdoodle8.mods.galacticraft.core.client.model;
 
+import java.util.List;
+
+import org.lwjgl.opengl.GL11;
+
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.Loader;
 import micdoodle8.mods.galacticraft.api.item.IHoldableItem;
@@ -24,10 +28,6 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
-
-import org.lwjgl.opengl.GL11;
-
-import java.util.List;
 
 /**
  * This renders the Galacticraft equipment, if RenderPlayerAPI / Smart Moving are not installed.

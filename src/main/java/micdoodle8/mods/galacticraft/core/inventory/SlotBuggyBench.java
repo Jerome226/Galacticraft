@@ -2,7 +2,6 @@ package micdoodle8.mods.galacticraft.core.inventory;
 
 import cpw.mods.ironchest.IronChest;
 import galaxyspace.core.register.GSItems;
-import gregtech.api.util.GT_ModHandler;
 import micdoodle8.mods.galacticraft.core.GalacticraftCore;
 import micdoodle8.mods.galacticraft.core.items.GCItems;
 import micdoodle8.mods.galacticraft.core.network.PacketSimple;

@@ -1,5 +1,7 @@
 package micdoodle8.mods.galacticraft.core.client.gui.screen;
 
+import org.lwjgl.opengl.GL11;
+
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.FMLCommonHandler;
 import micdoodle8.mods.galacticraft.api.client.IGameScreen;
@@ -11,7 +13,6 @@ import micdoodle8.mods.galacticraft.core.proxy.ClientProxyCore;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
 
 public class GameScreenBasic implements IGameScreen
 {
@@ -35,12 +36,14 @@ public class GameScreenBasic implements IGameScreen
 		}
     }
     
-    public void setFrameSize(float frameSize)
+    @Override
+	public void setFrameSize(float frameSize)
 	{
 		this.frameA = frameSize;
 	}
 
-    public void render(int type, float ticks, float scaleX, float scaleY, IScreenManager scr)
+    @Override
+	public void render(int type, float ticks, float scaleX, float scaleY, IScreenManager scr)
     {
     	frameBx = scaleX - frameA;
     	frameBy = scaleY - frameA;

@@ -3,7 +3,6 @@ package micdoodle8.mods.galacticraft.core.client.render;
 import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.client.FMLClientHandler;
-
 import micdoodle8.mods.galacticraft.core.GalacticraftCore;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureManager;
@@ -25,7 +24,7 @@ public class RenderPlanet
 	{
     	GL11.glBindTexture(GL11.GL_TEXTURE_2D, textureId);
     	float size = relSize / 70 * scale;
-    	ticks = ((float) System.nanoTime()) / 50000000F;
+    	ticks = (System.nanoTime()) / 50000000F;
     	RenderPlanet.drawTexturedRectUV(- size / 2, -size / 2, size, size, ticks);
 	}
 
@@ -33,7 +32,7 @@ public class RenderPlanet
 	{
 		RenderPlanet.renderEngine.bindTexture(texture);
     	float size = relSize / 70 * scale;    	
-    	ticks = ((float) System.nanoTime()) / 50000000F;
+    	ticks = (System.nanoTime()) / 50000000F;
     	RenderPlanet.drawTexturedRectUV(- size / 2, -size / 2, size, size, ticks);
 	}
 

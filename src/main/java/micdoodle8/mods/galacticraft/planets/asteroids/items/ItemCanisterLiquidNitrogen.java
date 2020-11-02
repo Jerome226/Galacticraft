@@ -1,5 +1,7 @@
 package micdoodle8.mods.galacticraft.planets.asteroids.items;
 
+import java.util.List;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import micdoodle8.mods.galacticraft.core.items.ItemCanisterGeneric;
@@ -14,8 +16,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
-
-import java.util.List;
 
 public class ItemCanisterLiquidNitrogen extends ItemCanisterGeneric
 {
@@ -91,7 +91,8 @@ public class ItemCanisterLiquidNitrogen extends ItemCanisterGeneric
         return null;
     }
 
-    public ItemStack onItemRightClick(ItemStack itemStack, World par2World, EntityPlayer par3EntityPlayer)
+    @Override
+	public ItemStack onItemRightClick(ItemStack itemStack, World par2World, EntityPlayer par3EntityPlayer)
     {
         int damage = itemStack.getItemDamage() + 125;
         if (damage > itemStack.getMaxDamage())

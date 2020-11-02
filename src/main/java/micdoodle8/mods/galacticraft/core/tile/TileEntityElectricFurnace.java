@@ -1,5 +1,8 @@
 package micdoodle8.mods.galacticraft.core.tile;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import cpw.mods.fml.relauncher.Side;
 import micdoodle8.mods.galacticraft.core.blocks.GCBlocks;
 import micdoodle8.mods.galacticraft.core.energy.item.ItemElectricBase;
@@ -14,9 +17,6 @@ import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
-
-import java.util.HashSet;
-import java.util.Set;
 
 public class TileEntityElectricFurnace extends TileBaseElectricBlockWithInventory implements ISidedInventory
 {

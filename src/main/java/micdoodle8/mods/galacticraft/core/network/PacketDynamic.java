@@ -1,5 +1,8 @@
 package micdoodle8.mods.galacticraft.core.network;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.relauncher.Side;
@@ -12,9 +15,6 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-
-import java.io.IOException;
-import java.util.ArrayList;
 
 public class PacketDynamic implements IPacket
 {

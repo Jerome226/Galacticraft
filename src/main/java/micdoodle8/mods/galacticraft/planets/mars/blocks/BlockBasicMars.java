@@ -1,5 +1,8 @@
 package micdoodle8.mods.galacticraft.planets.mars.blocks;
 
+import java.util.List;
+import java.util.Random;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import micdoodle8.mods.galacticraft.api.block.IDetectableResource;
@@ -31,9 +34,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import java.util.List;
-import java.util.Random;
-
 public class BlockBasicMars extends Block implements IDetectableResource, IPlantableBlock, ITileEntityProvider, ITerraformableBlock
 {
     @SideOnly(Side.CLIENT)
@@ -46,7 +46,8 @@ public class BlockBasicMars extends Block implements IDetectableResource, IPlant
     //9 Mars stone
     //10 dungeon spawner (invisible)
     
-    public MapColor getMapColor(int meta)
+    @Override
+	public MapColor getMapColor(int meta)
     {
         switch (meta)
         {

@@ -1,5 +1,7 @@
 package micdoodle8.mods.galacticraft.core.nei;
 
+import java.util.List;
+
 import codechicken.nei.api.IHighlightHandler;
 import codechicken.nei.api.ItemInfo;
 import codechicken.nei.guihook.GuiContainerManager;
@@ -10,8 +12,6 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
-
-import java.util.List;
 
 public class GCNEIHighlightHandler implements IHighlightHandler
 {

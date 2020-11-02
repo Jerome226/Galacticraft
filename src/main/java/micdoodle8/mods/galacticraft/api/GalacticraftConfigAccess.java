@@ -18,7 +18,7 @@ public class GalacticraftConfigAccess
 			setup();
 		
 		try {
-			return (boolean) quickMode.getBoolean(null);
+			return quickMode.getBoolean(null);
 		} catch (Exception e) { }
 		return false;
 	}
@@ -29,7 +29,7 @@ public class GalacticraftConfigAccess
 			setup();
 		
 		try {
-			return (boolean) hardMode.getBoolean(null);
+			return hardMode.getBoolean(null);
 		} catch (Exception e) { }
 		return false;
 	}
@@ -40,7 +40,7 @@ public class GalacticraftConfigAccess
 			setup();
 		
 		try {
-			return (boolean) adventureMode.getBoolean(null);
+			return adventureMode.getBoolean(null);
 		} catch (Exception e) { }
 		return false;
 	}
@@ -51,7 +51,7 @@ public class GalacticraftConfigAccess
 			setup();
 		
 		try {
-			return (boolean) adventureRecipes.getBoolean(null);
+			return adventureRecipes.getBoolean(null);
 		} catch (Exception e) { }
 		return false;
 	}
@@ -62,7 +62,7 @@ public class GalacticraftConfigAccess
 			setup();
 		
 		try {
-			return (boolean) adventureMobDropsAndSpawning.getBoolean(null);
+			return adventureMobDropsAndSpawning.getBoolean(null);
 		} catch (Exception e) { }
 		return false;
 	}
@@ -73,7 +73,7 @@ public class GalacticraftConfigAccess
 			setup();
 		
 		try {
-			return (boolean) adventureSpawnHandling.getBoolean(null);
+			return adventureSpawnHandling.getBoolean(null);
 		} catch (Exception e) { }
 		return false;
 	}
@@ -84,7 +84,7 @@ public class GalacticraftConfigAccess
 			setup();
 		
 		try {
-			return (boolean) adventureAsteroidPopulation.getBoolean(null);
+			return adventureAsteroidPopulation.getBoolean(null);
 		} catch (Exception e) { }
 		return false;
 	}

@@ -1,5 +1,7 @@
 package micdoodle8.mods.galacticraft.core.network;
 
+import java.io.IOException;
+
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import micdoodle8.mods.galacticraft.core.GalacticraftCore;
@@ -10,8 +12,6 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-
-import java.io.IOException;
 
 public class PacketDynamicInventory implements IPacket
 {

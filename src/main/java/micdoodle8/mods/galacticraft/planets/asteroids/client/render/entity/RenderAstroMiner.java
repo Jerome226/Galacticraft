@@ -3,6 +3,10 @@ package micdoodle8.mods.galacticraft.planets.asteroids.client.render.entity;
 import java.util.ArrayList;
 import java.util.Random;
 
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL12;
+
+import cpw.mods.fml.client.FMLClientHandler;
 import micdoodle8.mods.galacticraft.api.vector.BlockVec3;
 import micdoodle8.mods.galacticraft.core.perlin.NoiseModule;
 import micdoodle8.mods.galacticraft.core.perlin.generator.Gradient;
@@ -17,11 +21,6 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
-
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
-
-import cpw.mods.fml.client.FMLClientHandler;
 
 public class RenderAstroMiner extends Render
 {
@@ -163,8 +162,8 @@ public class RenderAstroMiner extends Render
 
         if (active)
         {
-            FMLClientHandler.instance().getClient().renderEngine.bindTexture(this.modelTexture);
-	        this.modelObj.renderAllExcept("Hoverpad_Front_Left_Top", "Hoverpad_Front_Right_Top", "Hoverpad_Front_Left_Bottom", "Hoverpad_Front_Right_Bottom", "Hoverpad_Rear_Right", "Hoverpad_Rear_Left", "Hoverpad_Heavy_Right", "Hoverpad_Heavy_Left", "Hoverpad_Heavy_Rear", "Hoverpad_Front_Left_Top_Glow", "Hoverpad_Front_Right_Top_Glow", "Hoverpad_Front_Left_Bottom_Glow", "Hoverpad_Front_Right_Bottom_Glow", "Hoverpad_Rear_Right_Glow", "Hoverpad_Rear_Left_Glow", "Hoverpad_Heavy___Glow002", "Hoverpad_Heavy___Glow001", "Hoverpad_Heavy___Glow003");
+            FMLClientHandler.instance().getClient().renderEngine.bindTexture(RenderAstroMiner.modelTexture);
+	        RenderAstroMiner.modelObj.renderAllExcept("Hoverpad_Front_Left_Top", "Hoverpad_Front_Right_Top", "Hoverpad_Front_Left_Bottom", "Hoverpad_Front_Right_Bottom", "Hoverpad_Rear_Right", "Hoverpad_Rear_Left", "Hoverpad_Heavy_Right", "Hoverpad_Heavy_Left", "Hoverpad_Heavy_Rear", "Hoverpad_Front_Left_Top_Glow", "Hoverpad_Front_Right_Top_Glow", "Hoverpad_Front_Left_Bottom_Glow", "Hoverpad_Front_Right_Bottom_Glow", "Hoverpad_Rear_Right_Glow", "Hoverpad_Rear_Left_Glow", "Hoverpad_Heavy___Glow002", "Hoverpad_Heavy___Glow001", "Hoverpad_Heavy___Glow003");
 
 	        renderLaserModel(astroMiner.retraction);
 	        
@@ -173,9 +172,9 @@ public class RenderAstroMiner extends Render
 	        OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 240F, 240F);
 	        GL11.glDisable(GL11.GL_LIGHTING);
 	        GL11.glColor4f(sinOfTheTime, sinOfTheTime, sinOfTheTime, 1.0F);
-	        this.modelObj.renderOnly("Hoverpad_Front_Left_Top", "Hoverpad_Front_Right_Top", "Hoverpad_Front_Left_Bottom", "Hoverpad_Front_Right_Bottom", "Hoverpad_Rear_Right", "Hoverpad_Rear_Left", "Hoverpad_Heavy_Right", "Hoverpad_Heavy_Left", "Hoverpad_Heavy_Rear");
+	        RenderAstroMiner.modelObj.renderOnly("Hoverpad_Front_Left_Top", "Hoverpad_Front_Right_Top", "Hoverpad_Front_Left_Bottom", "Hoverpad_Front_Right_Bottom", "Hoverpad_Rear_Right", "Hoverpad_Rear_Left", "Hoverpad_Heavy_Right", "Hoverpad_Heavy_Left", "Hoverpad_Heavy_Rear");
 	
-	        FMLClientHandler.instance().getClient().renderEngine.bindTexture(this.modelTextureFX);
+	        FMLClientHandler.instance().getClient().renderEngine.bindTexture(RenderAstroMiner.modelTextureFX);
 	        GL11.glDisable(GL11.GL_CULL_FACE);
 	        GL11.glDisable(GL11.GL_ALPHA_TEST);
 	        GL11.glDepthMask(false);
@@ -184,11 +183,11 @@ public class RenderAstroMiner extends Render
 	        GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
 	        GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_LINEAR);
 	        GL11.glColor4f(sinOfTheTime, sinOfTheTime, sinOfTheTime, 0.6F);
-	        this.modelObj.renderOnly("Hoverpad_Front_Left_Top_Glow", "Hoverpad_Front_Right_Top_Glow", "Hoverpad_Front_Left_Bottom_Glow", "Hoverpad_Front_Right_Bottom_Glow", "Hoverpad_Rear_Right_Glow", "Hoverpad_Rear_Left_Glow", "Hoverpad_Heavy___Glow002", "Hoverpad_Heavy___Glow001", "Hoverpad_Heavy___Glow003");
+	        RenderAstroMiner.modelObj.renderOnly("Hoverpad_Front_Left_Top_Glow", "Hoverpad_Front_Right_Top_Glow", "Hoverpad_Front_Left_Bottom_Glow", "Hoverpad_Front_Right_Bottom_Glow", "Hoverpad_Rear_Right_Glow", "Hoverpad_Rear_Left_Glow", "Hoverpad_Heavy___Glow002", "Hoverpad_Heavy___Glow001", "Hoverpad_Heavy___Glow003");
 
 	        if (ais < EntityAstroMiner.AISTATE_DOCKING)
 	        {
-	        	FMLClientHandler.instance().getClient().renderEngine.bindTexture(this.scanTexture);
+	        	FMLClientHandler.instance().getClient().renderEngine.bindTexture(RenderAstroMiner.scanTexture);
 		        final Tessellator tess = Tessellator.instance;
 		        GL11.glColor4f(0, 0.6F, 1.0F, 0.2F);
 		        tess.startDrawingQuads(); 
@@ -257,7 +256,7 @@ public class RenderAstroMiner extends Render
         else
         {
             this.bindEntityTexture(astroMiner);
-            this.modelObj.renderAllExcept("Hoverpad_Front_Left_Top_Glow", "Hoverpad_Front_Right_Top_Glow", "Hoverpad_Front_Left_Bottom_Glow", "Hoverpad_Front_Right_Bottom_Glow", "Hoverpad_Rear_Right_Glow", "Hoverpad_Rear_Left_Glow", "Hoverpad_Heavy___Glow002", "Hoverpad_Heavy___Glow001", "Hoverpad_Heavy___Glow003");
+            RenderAstroMiner.modelObj.renderAllExcept("Hoverpad_Front_Left_Top_Glow", "Hoverpad_Front_Right_Top_Glow", "Hoverpad_Front_Left_Bottom_Glow", "Hoverpad_Front_Right_Bottom_Glow", "Hoverpad_Rear_Right_Glow", "Hoverpad_Rear_Left_Glow", "Hoverpad_Heavy___Glow002", "Hoverpad_Heavy___Glow001", "Hoverpad_Heavy___Glow003");
 	        renderLaserModel(astroMiner.retraction);
 	        if (astroMiner.retraction < 1F)
 	        {
@@ -506,26 +505,26 @@ public class RenderAstroMiner extends Render
     		zadjust = (zadjust - yadjust) * 2.5F + yadjust;
     	}
         GL11.glTranslatef(0F, yadjust, zadjust);
-	    this.modellaser1.renderAll();
-	    this.modellaser2.renderAll();
+	    RenderAstroMiner.modellaser1.renderAll();
+	    RenderAstroMiner.modellaser2.renderAll();
 	    if (yadjust == 0.938F)
 	    {
 	        //Do not move laser centre into body
 	    	GL11.glTranslatef(0F, 0F, -zadjust + 0.938F);
 	    }
-	    this.modellaser3.renderAll();
+	    RenderAstroMiner.modellaser3.renderAll();
     	GL11.glPopMatrix();
         GL11.glPushMatrix();
         GL11.glTranslatef(guardmovement, 0F, 0F);
-	    this.modellasergl.renderAll();
+	    RenderAstroMiner.modellasergl.renderAll();
         GL11.glTranslatef(-2 * guardmovement, 0F, 0F);
-	    this.modellasergr.renderAll();
+	    RenderAstroMiner.modellasergr.renderAll();
         GL11.glPopMatrix();
     }
 
     @Override
     protected ResourceLocation getEntityTexture(Entity entity)
     {
-        return this.modelTextureOff;
+        return RenderAstroMiner.modelTextureOff;
     }
 }

@@ -1,5 +1,8 @@
 package micdoodle8.mods.galacticraft.core.client.render.item;
 
+import org.lwjgl.Sys;
+import org.lwjgl.opengl.GL11;
+
 import cpw.mods.fml.client.FMLClientHandler;
 import micdoodle8.mods.galacticraft.core.client.model.ModelKey;
 import net.minecraft.client.renderer.RenderBlocks;
@@ -8,8 +11,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
-import org.lwjgl.Sys;
-import org.lwjgl.opengl.GL11;
 
 public class ItemRendererKey implements IItemRenderer
 {

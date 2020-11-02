@@ -1,5 +1,10 @@
 package micdoodle8.mods.galacticraft.core.energy.tile;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
+import java.util.EnumSet;
+
+import cofh.api.energy.IEnergyContainerItem;
 import cpw.mods.fml.common.eventhandler.Event;
 import ic2.api.item.IElectricItem;
 import ic2.api.item.ISpecialElectricItem;
@@ -17,15 +22,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
-import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Method;
-import java.util.EnumSet;
-
-import cofh.api.energy.IEnergyContainerItem;
 
 public abstract class TileBaseUniversalElectrical extends EnergyStorageTile //implements IElectrical, IElectricalStorage
 {

@@ -1,5 +1,8 @@
 package micdoodle8.mods.galacticraft.planets.asteroids.blocks;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 import micdoodle8.mods.galacticraft.core.blocks.BlockTileGC;
 import micdoodle8.mods.galacticraft.planets.asteroids.AsteroidsModule;
 import micdoodle8.mods.galacticraft.planets.asteroids.tile.TileEntityMinerBase;
@@ -12,9 +15,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
-
-import java.util.ArrayList;
-import java.util.Random;
 
 public class BlockMinerBaseFull extends BlockTileGC 
 {

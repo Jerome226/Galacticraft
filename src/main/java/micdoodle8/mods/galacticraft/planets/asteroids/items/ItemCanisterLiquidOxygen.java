@@ -1,5 +1,8 @@
 package micdoodle8.mods.galacticraft.planets.asteroids.items;
 
+import java.util.HashMap;
+import java.util.List;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import micdoodle8.mods.galacticraft.api.item.IItemOxygenSupply;
@@ -11,8 +14,6 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import java.util.HashMap;
-import java.util.List;
 
 public class ItemCanisterLiquidOxygen extends ItemCanisterGeneric implements IItemOxygenSupply
 {

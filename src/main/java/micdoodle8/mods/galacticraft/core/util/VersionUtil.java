@@ -1,5 +1,12 @@
 package micdoodle8.mods.galacticraft.core.util;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
 import com.google.common.collect.Maps;
 import com.mojang.authlib.GameProfile;
 
@@ -13,9 +20,9 @@ import micdoodle8.mods.galacticraft.core.Constants;
 import micdoodle8.mods.galacticraft.planets.mars.entities.EntitySlimeling;
 import micdoodle8.mods.galacticraft.planets.mars.tile.TileEntitySlimelingEgg;
 import micdoodle8.mods.miccore.MicdoodleTransformer;
+import micdoodle8.mods.miccore.MicdoodleTransformer.FieldObfuscationEntry;
 import micdoodle8.mods.miccore.MicdoodleTransformer.MethodObfuscationEntry;
 import micdoodle8.mods.miccore.MicdoodleTransformer.ObfuscationEntry;
-import micdoodle8.mods.miccore.MicdoodleTransformer.FieldObfuscationEntry;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
@@ -32,13 +39,6 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.ChunkCache;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
 
 public class VersionUtil
 {

@@ -1,5 +1,7 @@
 package micdoodle8.mods.galacticraft.planets.mars.recipe;
 
+import java.util.HashMap;
+
 import cpw.mods.ironchest.IronChest;
 import galaxyspace.core.register.GSItems;
 import micdoodle8.mods.galacticraft.core.blocks.GCBlocks;
@@ -16,8 +18,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.oredict.OreDictionary;
-
-import java.util.HashMap;
 
 public class RecipeManagerMars
 {

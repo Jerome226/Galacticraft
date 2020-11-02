@@ -1,5 +1,8 @@
 package micdoodle8.mods.galacticraft.planets.asteroids.event;
 
+import org.lwjgl.Sys;
+import org.lwjgl.opengl.GL11;
+
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.ClientTickEvent;
@@ -16,8 +19,6 @@ import micdoodle8.mods.galacticraft.planets.asteroids.client.render.NetworkRende
 import micdoodle8.mods.galacticraft.planets.asteroids.dimension.WorldProviderAsteroids;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
-import org.lwjgl.Sys;
-import org.lwjgl.opengl.GL11;
 
 public class AsteroidsEventHandlerClient
 {
