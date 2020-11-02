@@ -3,12 +3,10 @@ def versionMajor = 3
 def versionMinor = 0
 def versionRev = "19-GTNH"
 
-def gsversion = "1.1.6-GTNH"
-def gsjenkinsbuild = 33
+def gsversion = "1.1.6f-GTNH"
+def gsjenkinsbuild = 45
 def micversion = "3.0.15-GTNH"
 def micjenkinsbuild = 2
-def gtversion = "5.09.33.54"
-def gtjenkinsbuild = 682
 
 buildscript {
     repositories {
@@ -138,21 +136,7 @@ task getGalaxySpace(type: Download, dependsOn: "getIronChest") {
     }
 }
 
-task getGregTech(type: Download, dependsOn: "getGalaxySpace") {
-    onlyIf {
-        !file("libs/Gregtech-${gtversion}-(${gtjenkinsbuild}).jar").exists()
-    }
-    src "http://jenkins.usrv.eu:8080/job/Gregtech-5-Unofficial/${gtjenkinsbuild}/artifact/build/libs/gregtech-${gtversion}-dev.jar"
-    dest file("libs/Gregtech-${gtversion}-(${gtjenkinsbuild}).jar")
-    mustRunAfter "deobfBinJar"
-    mustRunAfter "repackMinecraft"
-    delete fileTree("$projectDir/libs/") {
-        include "Gregtech-*.jar"
-        exclude "Gregtech-${gtversion}-(${gtjenkinsbuild}).jar"
-    }
-}
-
-task getMiccdoodleCore(type: Download, dependsOn: "getGregTech") {
+task getMiccdoodleCore(type: Download, dependsOn: "getGalaxySpace") {
 	onlyIf {
 		!file("libs/MiccdoodleCore-${micversion}-(${micjenkinsbuild}).jar").exists()
 	}
