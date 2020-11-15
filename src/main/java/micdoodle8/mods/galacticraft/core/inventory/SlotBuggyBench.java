@@ -66,11 +66,11 @@ public class SlotBuggyBench extends Slot
         } else if(index >= 4 && index <= 7) {
             return itemStack.getItem() == GCItems.partBuggy && itemStack.getItemDamage() == 0;
         } else if(index >= 8 && index <= 11) {
-            return itemStack.getItem() == GT_ModHandler.getModItem("gregtech", "gt.metaitem.01", 1).getItem() && itemStack.getItemDamage() == 23306;
+            return itemStack.getItem() == null; //war GT
         } else if(index >= 12 && index <= 16) {
             return itemStack.getItem() == GCItems.meteoricIronIngot && itemStack.getItemDamage() == 1;
         } else if(index >= 17 && index <= 24) {
-            return itemStack.getItem() == GT_ModHandler.getModItem("gregtech", "gt.metaitem.01", 1).getItem() && itemStack.getItemDamage() == 27306;
+            return itemStack.getItem() == null; //war GT
         } else if(index >= 25 && index <= 34) {
             return itemStack.getItem() == GCItems.heavyPlatingTier1;
         } else if(index == 35) {

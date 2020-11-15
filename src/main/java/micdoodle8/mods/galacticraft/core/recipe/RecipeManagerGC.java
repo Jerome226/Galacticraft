@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import appeng.api.AEApi;
-import appeng.api.definitions.Materials;
 import appeng.api.util.AEColor;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.ironchest.IronChest;
@@ -172,13 +171,13 @@ public class RecipeManagerGC
             input.put(i, new ItemStack(GCItems.partBuggy));
         }
         for(int i = 8; i <= 11; i++) {
-            input.put(i, GT_OreDictUnificator.get(OrePrefixes.stick, Materials.StainlessSteel, 1));
+            input.put(i, null); //war GT
         }
         for(int i = 12; i <= 16; i++) {
             input.put(i, new ItemStack(GCItems.meteoricIronIngot, 1, 1));
         }
         for(int i = 17; i <= 24; i++) {
-            input.put(i, GT_OreDictUnificator.get(OrePrefixes.screw, Materials.StainlessSteel, 1));
+            input.put(i, null); //war GT
         }
         for(int i = 25; i <= 34; i++) {
             input.put(i, new ItemStack(GCItems.heavyPlatingTier1));

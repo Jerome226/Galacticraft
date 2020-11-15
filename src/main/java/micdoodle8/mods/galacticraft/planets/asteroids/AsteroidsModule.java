@@ -261,8 +261,8 @@ public class AsteroidsModule implements IPlanetsModule
         input.put(25, new ItemStack(IronChest.ironChestBlock, 1, 1));
         input.put(26, new ItemStack(AsteroidsItems.basicItem, 1, 8));
         input.put(27, new ItemStack(AsteroidBlocks.beamReceiver));
-        input.put(28, GT_ModHandler.getModItem("gregtech", "gt.metaitem.01", 1, 32603));
-        input.put(29, GT_ModHandler.getModItem("gregtech", "gt.metaitem.01", 1, 32603));
+        input.put(28, null); //war GT
+        input.put(29, null); //war GT
         GalacticraftRegistry.addAstroMinerRecipe(new NasaWorkbenchRecipe(new ItemStack(AsteroidsItems.astroMiner, 1, 0), input));
     }
 

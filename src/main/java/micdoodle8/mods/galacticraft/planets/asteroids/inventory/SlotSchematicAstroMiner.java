@@ -80,7 +80,7 @@ public class SlotSchematicAstroMiner extends Slot
         } else if(index == 27) {
             return itemStack.getItem() == Item.getItemFromBlock(AsteroidBlocks.beamReceiver);
         } else if(index == 28 || index == 29) {
-            return itemStack.getItem() == GT_ModHandler.getModItem("gregtech", "gt.metaitem.01", 1).getItem() && itemStack.getItemDamage() == 32603;
+            return itemStack.getItem() == null; //war GT
         } else {
             return false;
         }
