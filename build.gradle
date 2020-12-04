@@ -1,9 +1,9 @@
 def mcVersion = "1.7"
 def versionMajor = 3
 def versionMinor = 0
-def versionRev = "19-GTNH"
+def versionRev = "13-FPSP"
 
-def micversion = "3.0.13-FPSP"
+def micversion = "3.0.15-GTNH"
 def micjenkinsbuild = 2
 
 buildscript {
