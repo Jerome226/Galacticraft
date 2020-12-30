@@ -73,7 +73,7 @@ dependencies {
     compile "smart-render:SmartRender:1.7.10:2.1"
     compileOnly "codechicken:CodeChickenCore:1.7.10-1.0.7.46:dev"
     compileOnly "codechicken:CodeChickenLib:1.7.10-1.1.3.138:dev"
-    compileOnly "notenoughitems:NotEnoughItems:1.7.10-1.0.5.111:dev"
+    compileOnly "codechicken:NotEnoughItems:1.7.10-1.0.5.111:dev"
     compileOnly "net.industrial-craft:industrialcraft-2:2.2.790-experimental:dev"
     provided ("appeng:appliedenergistics2:rv3-beta-22:dev") { exclude module: '*' }
 }
