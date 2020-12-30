@@ -426,7 +426,7 @@ gui.telemetryFailWearingIt.message=¡Necesitaré soltar mi módulo de frecuencia
 
 gui.rocketType.0=Espacio de almacenamiento: 18
 gui.rocketType.1=Espacio de almacenamiento: 36
-gui.rocketType.2=Espacio de almacenamiento: 56
+gui.rocketType.2=Espacio de almacenamiento: 54
 gui.rocketType.3=Pre-alimentado
 
 gui.spacestation.typeCommand=Tipo

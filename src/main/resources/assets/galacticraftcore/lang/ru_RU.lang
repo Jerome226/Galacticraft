@@ -426,7 +426,7 @@ gui.telemetryFailWearingIt.message=Мне нужно снять частотны
 
 gui.rocketType.0=Размер хранилища: 18
 gui.rocketType.1=Размер хранилища: 36
-gui.rocketType.2=Размер хранилища: 56
+gui.rocketType.2=Размер хранилища: 54
 gui.rocketType.3=Заправленная
 
 gui.spacestation.typeCommand=Тип

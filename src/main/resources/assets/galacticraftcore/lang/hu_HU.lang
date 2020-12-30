@@ -423,7 +423,7 @@ gui.telemetryFailWearingIt.message=I'll need to take off my Frequency Module if 
 
 gui.rocketType.0=Raktárhely: 18
 gui.rocketType.1=Raktárhely: 36
-gui.rocketType.2=Raktárhely: 56
+gui.rocketType.2=Raktárhely: 54
 gui.rocketType.3=Előre feltöltve
 
 gui.spacestation.typeCommand=Írja be hogy

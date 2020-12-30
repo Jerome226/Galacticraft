@@ -426,7 +426,7 @@ gui.telemetryFailWearingIt.message=I'll need to take off my Frequency Module if 
 
 gui.rocketType.0=Storage Space: 18
 gui.rocketType.1=Storage Space: 36
-gui.rocketType.2=Storage Space: 56
+gui.rocketType.2=Storage Space: 54
 gui.rocketType.3=Pre-riempito
 
 gui.spacestation.typeCommand=Tipo

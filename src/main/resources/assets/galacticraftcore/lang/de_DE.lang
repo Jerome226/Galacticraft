@@ -429,7 +429,7 @@ gui.telemetryFailWearingIt.message=Ich muss mein Frequenzmodul abnehmen, wenn ic
 
 gui.rocketType.0=Lagerraum: 18
 gui.rocketType.1=Lagerraum: 36
-gui.rocketType.2=Lagerraum: 56
+gui.rocketType.2=Lagerraum: 54
 gui.rocketType.3=Vorgetankt
 
 gui.spacestation.typeCommand=Gib
