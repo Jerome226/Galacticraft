@@ -173,8 +173,7 @@ public class ChunkProviderAsteroids extends ChunkProviderGenerate
             this.coreHandler.addBlock(new SpecialAsteroidBlock(this.ASTEROID_STONE, (byte) 4, 4, .15));
         if (!ConfigManagerAsteroids.disableIronGen)
             this.coreHandler.addBlock(new SpecialAsteroidBlock(this.ASTEROID_STONE, (byte) 5, 3, .2));
-        if (ConfigManagerCore.enableSiliconOreGen)
-            this.coreHandler.addBlock(new SpecialAsteroidBlock(GCBlocks.basicBlock, (byte) 8, 2, .15)); //TODO: Asteroids version of silicon ore
+        this.coreHandler.addBlock(new SpecialAsteroidBlock(GCBlocks.basicBlock, (byte) 8, 2, .15)); //TODO: Asteroids version of silicon ore
         //Solid Meteoric Iron - has no config to disable
         this.coreHandler.addBlock(new SpecialAsteroidBlock(GCBlocks.basicBlock, (byte) 12, 2, .13));
         //Diamond ore - has no config to disable
