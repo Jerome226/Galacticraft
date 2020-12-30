@@ -60,6 +60,7 @@ repositories {
     maven {
         name = "IC2" // IndustrialCraft2
         url = "http://maven.ic2.player.to/"
+    }
     ivy {
         name "GTNH" // AppliedEnergistics2
         artifactPattern "http://downloads.gtnewhorizons.com/Mods_for_Jenkins/[module]-[revision].[ext]"
