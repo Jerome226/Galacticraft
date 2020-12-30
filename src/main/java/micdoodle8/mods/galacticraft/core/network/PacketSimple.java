@@ -830,7 +830,7 @@ public class PacketSimple extends Packet implements IPacket
                 try
                 {
                     File folder = new File(FMLClientHandler.instance().getClient().mcDataDir, "assets/temp");
-                    if (folder.exists() || folder.mkdir())
+                    if (folder.exists() || folder.mkdirs())
                     {
                         MapUtil.getOverworldImageFromRaw(folder, cx, cz, bytes);
                     }
