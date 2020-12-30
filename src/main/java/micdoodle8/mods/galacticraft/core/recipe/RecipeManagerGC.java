@@ -8,6 +8,7 @@ import appeng.api.AEApi;
 import appeng.api.util.AEColor;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.ironchest.IronChest;
+import galaxyspace.core.recipe.RecipeUtilGS;
 import galaxyspace.core.register.GSItems;
 import micdoodle8.mods.galacticraft.api.GalacticraftRegistry;
 import micdoodle8.mods.galacticraft.api.recipe.CircuitFabricatorRecipes;
@@ -237,10 +238,10 @@ public class RecipeManagerGC
         }
 
         final HashMap<Object, Integer> inputMap = new HashMap<Object, Integer>();
-        inputMap.put("ingotTin", 32);
-        inputMap.put(aluminumIngots, 16);
-        inputMap.put("waferAdvanced", 1);
-        inputMap.put(Items.iron_ingot, 24);
+        inputMap.put("blockTin", 256);
+        inputMap.put("blockFutureGlass", 8);
+        inputMap.put("ingotTitanium", 8);
+        inputMap.put(RecipeUtilGS.getItem("GalacticraftAmunRa", "item.baseItem"), 8);
         GalacticraftRegistry.registerSpaceStation(new SpaceStationType(ConfigManagerCore.idDimensionOverworldOrbit, 0, new SpaceStationRecipe(inputMap)));
 
         RecipeUtil.addRecipe(new ItemStack(GCBlocks.aluminumWire, 6), new Object[] { "WWW", "CCC", "WWW", 'W', Blocks.wool, 'C', "ingotAluminum" });
