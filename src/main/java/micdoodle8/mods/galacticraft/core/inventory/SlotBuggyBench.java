@@ -1,5 +1,6 @@
 package micdoodle8.mods.galacticraft.core.inventory;
 
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.ironchest.IronChest;
 import galaxyspace.core.register.GSItems;
 import micdoodle8.mods.galacticraft.core.GalacticraftCore;
@@ -66,11 +67,11 @@ public class SlotBuggyBench extends Slot
         } else if(index >= 4 && index <= 7) {
             return itemStack.getItem() == GCItems.partBuggy && itemStack.getItemDamage() == 0;
         } else if(index >= 8 && index <= 11) {
-            return itemStack.getItem() == null; //war GT
+            return itemStack.getItem() == GameRegistry.findItem("IC2", "itemRecipePart") && itemStack.getItemDamage() == 1;
         } else if(index >= 12 && index <= 16) {
             return itemStack.getItem() == GCItems.meteoricIronIngot && itemStack.getItemDamage() == 1;
         } else if(index >= 17 && index <= 24) {
-            return itemStack.getItem() == null; //war GT
+            return itemStack.getItem() == GCItems.basicItem && itemStack.getItemDamage() == 8;
         } else if(index >= 25 && index <= 34) {
             return itemStack.getItem() == GCItems.heavyPlatingTier1;
         } else if(index == 35) {

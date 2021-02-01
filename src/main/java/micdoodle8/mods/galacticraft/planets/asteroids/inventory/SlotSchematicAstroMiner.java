@@ -1,5 +1,6 @@
 package micdoodle8.mods.galacticraft.planets.asteroids.inventory;
 
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.ironchest.IronChest;
 import galaxyspace.core.register.GSItems;
 import micdoodle8.mods.galacticraft.core.GalacticraftCore;
@@ -80,7 +81,7 @@ public class SlotSchematicAstroMiner extends Slot
         } else if(index == 27) {
             return itemStack.getItem() == Item.getItemFromBlock(AsteroidBlocks.beamReceiver);
         } else if(index == 28 || index == 29) {
-            return itemStack.getItem() == null; //war GT
+            return itemStack.getItem() == GameRegistry.findItem("IC2", "itemRecipePart") && itemStack.getItemDamage() == 1;
         } else {
             return false;
         }

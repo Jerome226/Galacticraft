@@ -8,6 +8,7 @@ import java.util.Set;
 import codechicken.nei.PositionedStack;
 import codechicken.nei.api.API;
 import codechicken.nei.api.IConfigureNEI;
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.ironchest.IronChest;
 import galaxyspace.core.register.GSItems;
 import micdoodle8.mods.galacticraft.core.Constants;
@@ -16,7 +17,6 @@ import micdoodle8.mods.galacticraft.planets.asteroids.blocks.AsteroidBlocks;
 import micdoodle8.mods.galacticraft.planets.asteroids.items.AsteroidsItems;
 import micdoodle8.mods.galacticraft.planets.mars.items.MarsItems;
 import micdoodle8.mods.galacticraft.planets.mars.nei.NEIGalacticraftMarsConfig;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 
 public class NEIGalacticraftAsteroidsConfig implements IConfigureNEI
@@ -154,8 +154,8 @@ public class NEIGalacticraftAsteroidsConfig implements IConfigureNEI
         input.add(new PositionedStack(new ItemStack(IronChest.ironChestBlock, 1, 1), 98 - x, 55 - y));
         input.add(new PositionedStack(new ItemStack(AsteroidsItems.basicItem, 1, 8), 44 - x, 73 - y));
         input.add(new PositionedStack(new ItemStack(AsteroidBlocks.beamReceiver), 62 - x, 73 - y));
-        input.add(new PositionedStack(new ItemStack(Blocks.acacia_stairs), 80 - x, 73 - y));
-        input.add(new PositionedStack(new ItemStack(Blocks.acacia_stairs), 98 - x, 73 - y));
+        input.add(new PositionedStack(new ItemStack(GameRegistry.findItem("IC2", "itemRecipePart"), 1, 1), 80 - x, 73 - y));
+        input.add(new PositionedStack(new ItemStack(GameRegistry.findItem("IC2", "itemRecipePart"), 1, 1), 98 - x, 73 - y));
         registerAstroMinerRecipe(input, new PositionedStack(new ItemStack(AsteroidsItems.astroMiner), 143 - x, 55 - y));
     }
 }

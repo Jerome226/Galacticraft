@@ -178,8 +178,8 @@ public class RecipeManagerMars
 
         input.put(1, new ItemStack(GCItems.basicItem, 1, 14));
 		input.put(2, new ItemStack(GSItems.ControlComputer, 1, 101));
-		for(int i = 3; i <= 5; i++) {
-			input.put(i, new ItemStack(GSItems.ModuleSmallFuelCanister));
+		for(int i = 3; i <= 6; i++) {
+			input.put(i, new ItemStack(GSItems.RocketParts, 1, 40));
 		}
 		input.put(7, new ItemStack(GCItems.partNoseCone));
 		for(int i = 8; i <= 15; i++) {

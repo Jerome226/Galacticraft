@@ -7,6 +7,7 @@ import java.util.HashMap;
 import appeng.api.AEApi;
 import appeng.api.util.AEColor;
 import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.ironchest.IronChest;
 import galaxyspace.core.recipe.RecipeUtilGS;
 import galaxyspace.core.register.GSItems;
@@ -172,13 +173,13 @@ public class RecipeManagerGC
             input.put(i, new ItemStack(GCItems.partBuggy));
         }
         for(int i = 8; i <= 11; i++) {
-            input.put(i, null); //war GT
+            input.put(i, new ItemStack(GameRegistry.findItem("IC2", "itemRecipePart"), 1, 1));
         }
         for(int i = 12; i <= 16; i++) {
             input.put(i, new ItemStack(GCItems.meteoricIronIngot, 1, 1));
         }
         for(int i = 17; i <= 24; i++) {
-            input.put(i, null); //war GT
+            input.put(i, new ItemStack(GCItems.basicItem, 1, 8));
         }
         for(int i = 25; i <= 34; i++) {
             input.put(i, new ItemStack(GCItems.heavyPlatingTier1));

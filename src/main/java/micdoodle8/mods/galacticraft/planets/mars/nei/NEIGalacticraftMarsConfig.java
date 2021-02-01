@@ -158,9 +158,10 @@ public class NEIGalacticraftMarsConfig implements IConfigureNEI
         int y = CargoRocketRecipeHandler.tY - CargoRocketRecipeHandler.y;
         input.add(new PositionedStack(new ItemStack(GCItems.basicItem, 1, 14), 134 - x, 10 - y));
         input.add(new PositionedStack(new ItemStack(GSItems.ControlComputer, 1, 101), 134 - x, 28 - y));
-        input.add(new PositionedStack(new ItemStack(GSItems.ModuleSmallFuelCanister), 116 - x, 19 - y));
-        input.add(new PositionedStack(new ItemStack(GSItems.ModuleSmallFuelCanister), 152 - x, 19 - y));
-        input.add(new PositionedStack(new ItemStack(GSItems.ModuleSmallFuelCanister), 116 - x, 37 - y));
+        input.add(new PositionedStack(new ItemStack(GSItems.RocketParts, 1, 40), 116 - x, 19 - y));
+        input.add(new PositionedStack(new ItemStack(GSItems.RocketParts, 1, 40), 152 - x, 19 - y));
+        input.add(new PositionedStack(new ItemStack(GSItems.RocketParts, 1, 40), 116 - x, 37 - y));
+        input.add(new PositionedStack(new ItemStack(GSItems.RocketParts, 1, 40), 152 - x, 37 - y));
         input.add(new PositionedStack(new ItemStack(GCItems.partNoseCone), 53 - x, 19 - y));
         for(int i = 0; i < 4; i++) {
             for(int j = 0; j < 2; j++) {

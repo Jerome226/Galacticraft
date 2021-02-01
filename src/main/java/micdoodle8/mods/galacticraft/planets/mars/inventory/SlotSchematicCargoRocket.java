@@ -63,8 +63,8 @@ public class SlotSchematicCargoRocket extends Slot
             return itemStack.getItem() == GCItems.basicItem && itemStack.getItemDamage() == 14;
         } else if(index == 2) {
             return itemStack.getItem() == GSItems.ControlComputer && itemStack.getItemDamage() == 101;
-        } else if(index >= 3 && index <= 5) {
-            return itemStack.getItem() == GSItems.ModuleSmallFuelCanister;
+        } else if(index >= 3 && index <= 6) {
+            return itemStack.getItem() == GSItems.RocketParts && itemStack.getItemDamage() == 40;
         } else if(index == 7) {
             return itemStack.getItem() == GCItems.partNoseCone;
         } else if(index >= 8 && index <= 15) {
