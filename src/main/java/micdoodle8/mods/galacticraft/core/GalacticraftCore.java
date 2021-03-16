@@ -35,6 +35,8 @@ import micdoodle8.mods.galacticraft.api.galaxies.Planet;
 import micdoodle8.mods.galacticraft.api.galaxies.Satellite;
 import micdoodle8.mods.galacticraft.api.galaxies.SolarSystem;
 import micdoodle8.mods.galacticraft.api.galaxies.Star;
+import micdoodle8.mods.galacticraft.api.recipe.RocketFuel;
+import micdoodle8.mods.galacticraft.api.recipe.RocketFuelRecipe;
 import micdoodle8.mods.galacticraft.api.recipe.SchematicRegistry;
 import micdoodle8.mods.galacticraft.api.vector.BlockVec3;
 import micdoodle8.mods.galacticraft.api.vector.Vector3;
@@ -384,14 +386,14 @@ public class GalacticraftCore
 
     	String oilID = "oil";
         String fuelID = "fuel";
-        if (ConfigManagerCore.useOldOilFluidID)
+        /*if (ConfigManagerCore.useOldOilFluidID)
         {
             oilID = "oilgc";
         }
         if (ConfigManagerCore.useOldFuelFluidID)
         {
             fuelID = "fuelgc";
-        }
+        }*/
 
         // Oil:
         if (!FluidRegistry.isFluidRegistered(oilID))
@@ -535,6 +537,9 @@ public class GalacticraftCore
         	GCLog.severe("Error initialising JPEG compressor - this is likely caused by OpenJDK - see https://wiki.micdoodle8.com/wiki/Compatibility#For_Linux_servers_running_OpenJDK");
         	e.printStackTrace();
         }
+        String fuelsText = "Registered Rocket Fuels: ";
+        for (RocketFuel fuel : RocketFuelRecipe.fuelList) fuelsText += FluidRegistry.getFluidName(fuel.getFluidID()) + " ";
+        GCLog.info(fuelsText);
     }
 
     @EventHandler

@@ -26,4 +26,9 @@ public class RocketFuel
     {
         return fluid.getID() == fluidId;
     }
+    
+    public int getFluidID() {
+    	return this.fluidId;
+    }
+    
 }
