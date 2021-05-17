@@ -365,18 +365,18 @@ public class GalacticraftCore
         {
             FluidRegistry.registerFluid(new Fluid("oil").setDensity(800).setViscosity(1500));
         }
-        if (!FluidRegistry.isFluidRegistered("oilgc"))
-        {
-            FluidRegistry.registerFluid(new Fluid("oilgc").setDensity(800).setViscosity(1500));
-        }
+//        if (!FluidRegistry.isFluidRegistered("oilgc"))
+//        {
+//            FluidRegistry.registerFluid(new Fluid("oilgc").setDensity(800).setViscosity(1500));
+//        }
         if (!FluidRegistry.isFluidRegistered("fuel"))
         {
             FluidRegistry.registerFluid(new Fluid("fuel").setDensity(400).setViscosity(900));
         }
-        if (!FluidRegistry.isFluidRegistered("fuelgc"))
-        {
-            FluidRegistry.registerFluid(new Fluid("fuelgc").setDensity(400).setViscosity(900));
-        }
+//        if (!FluidRegistry.isFluidRegistered("fuelgc"))
+//        {
+//            FluidRegistry.registerFluid(new Fluid("fuelgc").setDensity(400).setViscosity(900));
+//        }
     }
 
     private void registerOilandFuel()
