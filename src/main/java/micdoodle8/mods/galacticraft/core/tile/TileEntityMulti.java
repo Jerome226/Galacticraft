@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import cpw.mods.fml.relauncher.Side;
 import micdoodle8.mods.galacticraft.api.vector.BlockVec3;
-import micdoodle8.mods.miccore.Annotations.NetworkedField;
+import micdoodle8.mods.galacticraft.core.util.Annotations.NetworkedField;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;

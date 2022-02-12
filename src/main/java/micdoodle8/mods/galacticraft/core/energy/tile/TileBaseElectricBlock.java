@@ -2,23 +2,25 @@ package micdoodle8.mods.galacticraft.core.energy.tile;
 
 import java.util.EnumSet;
 
+import cpw.mods.fml.common.Optional.Interface;
 import cpw.mods.fml.relauncher.Side;
+import ic2.api.tile.IWrenchable;
 import micdoodle8.mods.galacticraft.api.tile.IDisableableMachine;
 import micdoodle8.mods.galacticraft.api.transmission.NetworkType;
 import micdoodle8.mods.galacticraft.api.transmission.tile.IConnector;
+import micdoodle8.mods.galacticraft.core.util.Annotations.NetworkedField;
 import micdoodle8.mods.galacticraft.core.util.EnumColor;
 import micdoodle8.mods.galacticraft.core.util.GCCoreUtil;
 import micdoodle8.mods.galacticraft.core.util.RedstoneUtil;
-import micdoodle8.mods.miccore.Annotations.NetworkedField;
-import micdoodle8.mods.miccore.Annotations.RuntimeInterface;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MathHelper;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public abstract class TileBaseElectricBlock extends TileBaseUniversalElectrical implements IDisableableMachine, IConnector
-{
+@Interface(modid = "IC2API", iface = "ic2.api.tile.IWrenchable")
+public abstract class TileBaseElectricBlock extends TileBaseUniversalElectrical implements IDisableableMachine, IConnector, IWrenchable {
+	
     //	public int energyPerTick = 200;
     //	private final float ueMaxEnergy;
 
@@ -165,38 +167,39 @@ public abstract class TileBaseElectricBlock extends TileBaseUniversalElectrical 
         return this.disabled;
     }
 
-    @RuntimeInterface(clazz = "ic2.api.tile.IWrenchable", modID = "IC2")
-    public boolean wrenchCanSetFacing(EntityPlayer entityPlayer, int side)
+    @Override
+	public boolean wrenchCanSetFacing(EntityPlayer entityPlayer, int side)
     {
         return false;
     }
 
-    @RuntimeInterface(clazz = "ic2.api.tile.IWrenchable", modID = "IC2")
-    public short getFacing()
+    @Override
+	public short getFacing()
     {
         return (short) this.worldObj.getBlockMetadata(MathHelper.floor_double(this.xCoord), MathHelper.floor_double(this.yCoord), MathHelper.floor_double(this.zCoord));
     }
 
-    @RuntimeInterface(clazz = "ic2.api.tile.IWrenchable", modID = "IC2")
-    public void setFacing(short facing)
+    @Override
+	public void setFacing(short facing)
     {
 
     }
 
-    @RuntimeInterface(clazz = "ic2.api.tile.IWrenchable", modID = "IC2")
-    public boolean wrenchCanRemove(EntityPlayer entityPlayer)
+    @Override
+	public boolean wrenchCanRemove(EntityPlayer entityPlayer)
     {
         return false;
     }
 
-    @RuntimeInterface(clazz = "ic2.api.tile.IWrenchable", modID = "IC2")
-    public float getWrenchDropRate()
+    @Override
+	public float getWrenchDropRate()
     {
         return 1.0F;
     }
 
-    @RuntimeInterface(clazz = "ic2.api.tile.IWrenchable", modID = "IC2")
-    public ItemStack getWrenchDrop(EntityPlayer entityPlayer)
+    @Override
+	@SuppressWarnings("deprecation")
+	public ItemStack getWrenchDrop(EntityPlayer entityPlayer)
     {
         return this.getBlockType().getPickBlock(null, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
     }

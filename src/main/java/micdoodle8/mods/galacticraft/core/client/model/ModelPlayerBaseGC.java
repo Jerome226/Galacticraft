@@ -44,6 +44,7 @@ public class ModelPlayerBaseGC extends ModelPlayerBase
     public ModelRenderer[] redOxygenTanks = new ModelRenderer[2];
     public ModelRenderer[] blueOxygenTanks = new ModelRenderer[2];
     public ModelRenderer[] violetOxygenTanks = new ModelRenderer[2];
+    public ModelRenderer[] grayOxygenTanks = new ModelRenderer[2];
     public ModelRenderer oxygenMask;
 
     private boolean usingParachute;
@@ -94,7 +95,7 @@ public class ModelPlayerBaseGC extends ModelPlayerBase
 	            {
 	        	//Helmet and Frequency Module are head modules
 	            case 0:
-	            case 13:
+	            case 15:
 	                return (ModelRenderer)modelRotationGCSmartMovingInit.newInstance(player, texOffsetX, texOffsetY, SmartRender.getPlayerBase(this.modelPlayer).getHead(), type);
 	            //Oxygen gear etc are body
 	            default:
@@ -270,6 +271,15 @@ public class ModelPlayerBaseGC extends ModelPlayerBase
             this.violetOxygenTanks[1].setRotationPoint(-2F, 2F, 3.8F);
             this.violetOxygenTanks[1].mirror = true;
 
+            this.grayOxygenTanks[0] = createModelRenderer(this.modelPlayer, 4, 10, 13);
+            this.grayOxygenTanks[0].addBox(-1.5F, 0F, -1.5F, 3, 7, 3, var1);
+            this.grayOxygenTanks[0].setRotationPoint(2F, 2F, 3.8F);
+            this.grayOxygenTanks[0].mirror = true;
+            this.grayOxygenTanks[1] = createModelRenderer(this.modelPlayer, 4, 10, 14);
+            this.grayOxygenTanks[1].addBox(-1.5F, 0F, -1.5F, 3, 7, 3, var1);
+            this.grayOxygenTanks[1].setRotationPoint(-2F, 2F, 3.8F);
+            this.grayOxygenTanks[1].mirror = true;
+
             //TODO: Frequency module
             /*
             ModelRenderer fModule = createModelRenderer(this.modelPlayer, 0, 0, 9);
@@ -432,11 +442,13 @@ public class ModelPlayerBaseGC extends ModelPlayerBase
             boolean wearingLeftTankRed = gearData.getLeftTank() == 2;
             boolean wearingLeftTankBlue = gearData.getLeftTank() == 3;
             boolean wearingLeftTankViolet = gearData.getLeftTank() == 4;
+            boolean wearingLeftTankGray = gearData.getLeftTank() == Integer.MAX_VALUE;
             boolean wearingRightTankGreen = gearData.getRightTank() == 0;
             boolean wearingRightTankOrange = gearData.getRightTank() == 1;
             boolean wearingRightTankRed = gearData.getRightTank() == 2;
             boolean wearingRightTankBlue = gearData.getRightTank() == 3;
-            boolean wearingRightTankViolet = gearData.getLeftTank() == 4;
+            boolean wearingRightTankViolet = gearData.getRightTank() == 4;
+            boolean wearingRightTankGray = gearData.getRightTank() == Integer.MAX_VALUE;
             //boolean wearingFrequencyModule = gearData.getFrequencyModule() > -1;
 
             if (wearingMask)
@@ -512,6 +524,11 @@ public class ModelPlayerBaseGC extends ModelPlayerBase
                 this.violetOxygenTanks[0].render(var7);
             }
 
+            if (wearingLeftTankGray)
+            {
+                this.grayOxygenTanks[0].render(var7);
+            }
+
             if (wearingRightTankRed)
             {
             	this.redOxygenTanks[1].render(var7);
@@ -535,6 +552,11 @@ public class ModelPlayerBaseGC extends ModelPlayerBase
             if (wearingRightTankViolet)
             {
                 this.violetOxygenTanks[1].render(var7);
+            }
+
+            if (wearingRightTankGray)
+            {
+                this.grayOxygenTanks[1].render(var7);
             }
 
             if (usingParachute)

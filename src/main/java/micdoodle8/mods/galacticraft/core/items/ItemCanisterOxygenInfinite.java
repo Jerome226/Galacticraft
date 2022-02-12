@@ -1,65 +1,73 @@
 package micdoodle8.mods.galacticraft.core.items;
 
+import java.util.List;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import micdoodle8.mods.galacticraft.api.item.IItemOxygenSupply;
 import micdoodle8.mods.galacticraft.core.GalacticraftCore;
 import micdoodle8.mods.galacticraft.core.proxy.ClientProxyCore;
+import micdoodle8.mods.galacticraft.core.util.GCCoreUtil;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
 
-public class ItemCanisterOxygenInfinite extends Item implements IItemOxygenSupply
-{
-    public ItemCanisterOxygenInfinite(String assetName)
-    {
-        super();
-        this.setMaxDamage(ItemCanisterGeneric.EMPTY);
-        this.setMaxStackSize(1);
-        this.setNoRepair();
-        this.setUnlocalizedName(assetName);
-        this.setContainerItem(GCItems.oilCanister);
-    }
+public class ItemCanisterOxygenInfinite extends ItemOxygenTank implements IItemOxygenSupply {
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister iconRegister)
-    {
-        this.itemIcon = iconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX + "oxygenCanisterInfinite");
-    }
+	public ItemCanisterOxygenInfinite(String assetName) {
+		super(1, assetName);
+		this.setMaxDamage(Integer.MAX_VALUE);
+		this.setContainerItem(GCItems.oilCanister);
+	}
 
-    @Override
-    public CreativeTabs getCreativeTab()
-    {
-        return GalacticraftCore.galacticraftItemsTab;
-    }
-
-    @Override
-    public ItemStack getContainerItem(ItemStack itemstack)
-    {
-        if (super.getContainerItem(itemstack) == null)
-        	return null;
-    	return itemstack;
-    }
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
+	public void getSubItems(Item item, CreativeTabs tab, List list) {
+		list.add(new ItemStack(item));
+	}
 
 	@Override
-	public float discharge(ItemStack itemStack, float amount)
-	{
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IIconRegister iconRegister) {
+		this.itemIcon = iconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX + "oxygenCanisterInfinite");
+	}
+
+	@Override
+	public CreativeTabs getCreativeTab() {
+		return GalacticraftCore.galacticraftItemsTab;
+	}
+
+	@Override
+	public ItemStack getContainerItem(ItemStack stack) {
+		if (super.getContainerItem(stack) == null)
+			return null;
+		return stack;
+	}
+
+	@Override
+	public float discharge(ItemStack stack, float amount) {
 		return amount;
 	}
 
 	@Override
-	public int getOxygenStored(ItemStack par1ItemStack)
-	{
-		return par1ItemStack.getMaxDamage();
+	public int getOxygenStored(ItemStack stack) {
+		return stack.getMaxDamage();
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public EnumRarity getRarity(ItemStack stack) {
+		return ClientProxyCore.galacticraftItem;
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-    	@SideOnly(Side.CLIENT)
-    	public EnumRarity getRarity(ItemStack par1ItemStack)
-    	{
-        	return ClientProxyCore.galacticraftItem;
-    	}
+	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advancedTooltips) {
+		tooltip.add(GCCoreUtil.translate("gui.tank.oxygenRemaining") + ": " + EnumChatFormatting.LIGHT_PURPLE + "INFINITE");
+	}
+	
 }

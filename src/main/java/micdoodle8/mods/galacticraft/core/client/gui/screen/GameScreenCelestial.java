@@ -37,7 +37,7 @@ public class GameScreenCelestial implements IGameScreen
     private float centreY;
     private float scale;
 
-    private final int lineSegments = 90;;
+    private final int lineSegments = 90;
     private final float cos = (float) Math.cos(2 * Math.PI / lineSegments);
     private final float sin = (float) Math.sin(2 * Math.PI / lineSegments);
 

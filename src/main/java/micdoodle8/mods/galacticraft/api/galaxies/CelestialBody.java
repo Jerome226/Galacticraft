@@ -25,6 +25,7 @@ public abstract class CelestialBody implements Comparable<CelestialBody>
     protected boolean isReachable = false;
     protected boolean forceStaticLoad = true;
     protected int tierRequired = 0;
+    protected boolean allowSatellite = false;
 
     public ArrayList<IAtmosphericGas> atmosphere = new ArrayList();
 
@@ -186,6 +187,15 @@ public abstract class CelestialBody implements Comparable<CelestialBody>
     public boolean getReachable()
     {
         return this.isReachable;
+    }
+
+    public CelestialBody setAllowSatellite(boolean allowSatellite) {
+    	this.allowSatellite = allowSatellite;
+    	return this;
+    }
+
+    public boolean getAllowSatellite() {
+    	return this.allowSatellite;
     }
 
     /*

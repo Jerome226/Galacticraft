@@ -17,12 +17,11 @@ import cpw.mods.fml.relauncher.FMLInjectionData;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import micdoodle8.mods.galacticraft.core.Constants;
+import micdoodle8.mods.galacticraft.core.obfuscation.FieldObfuscationEntry;
+import micdoodle8.mods.galacticraft.core.obfuscation.MethodObfuscationEntry;
+import micdoodle8.mods.galacticraft.core.obfuscation.ObfuscationEntry;
 import micdoodle8.mods.galacticraft.planets.mars.entities.EntitySlimeling;
 import micdoodle8.mods.galacticraft.planets.mars.tile.TileEntitySlimelingEgg;
-import micdoodle8.mods.miccore.MicdoodleTransformer;
-import micdoodle8.mods.miccore.MicdoodleTransformer.FieldObfuscationEntry;
-import micdoodle8.mods.miccore.MicdoodleTransformer.MethodObfuscationEntry;
-import micdoodle8.mods.miccore.MicdoodleTransformer.ObfuscationEntry;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
@@ -46,7 +45,7 @@ public class VersionUtil
     public static boolean mcVersion1_7_2 = false;
     public static boolean mcVersion1_7_10 = false;
     private static boolean deobfuscated = true;
-    private static HashMap<String, MicdoodleTransformer.ObfuscationEntry> nodemap = Maps.newHashMap();
+    private static HashMap<String, ObfuscationEntry> nodemap = Maps.newHashMap();
     private static HashMap<Integer, Object> reflectionCache = Maps.newHashMap();
     //Note: in reflectionCache, currently positions 3, 5, 7, 11, 13, 15, 17 are unused and 21 onwards are also free.
 

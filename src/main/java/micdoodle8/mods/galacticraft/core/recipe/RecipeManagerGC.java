@@ -7,7 +7,6 @@ import java.util.HashMap;
 import appeng.api.AEApi;
 import appeng.api.util.AEColor;
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.ironchest.IronChest;
 import galaxyspace.core.item.ItemPlates.PlateTypes;
 import galaxyspace.core.recipe.RecipeUtilGS;
 import galaxyspace.core.register.GSItems;
@@ -180,15 +179,15 @@ public class RecipeManagerGC
         RecipeUtil.addBuggyBenchRecipe(new ItemStack(GCItems.buggy, 1, 0), input2);
 
         input2 = new HashMap<Integer, ItemStack>(input);
-        input2.put(35, new ItemStack(IronChest.ironChestBlock, 1, 3));
+        input2.put(35, RecipeUtil.getChestItemStack(1, 3));
         RecipeUtil.addBuggyBenchRecipe(new ItemStack(GCItems.buggy, 1, 1), input2);
 
         input2 = new HashMap<Integer, ItemStack>(input);
-        input2.put(35, new ItemStack(IronChest.ironChestBlock));
+        input2.put(35, RecipeUtil.getChestItemStack(1, 0));
         RecipeUtil.addBuggyBenchRecipe(new ItemStack(GCItems.buggy, 1, 2), input2);
 
         input2 = new HashMap<Integer, ItemStack>(input);
-        input2.put(35, new ItemStack(IronChest.ironChestBlock, 1, 1));
+        input2.put(35, RecipeUtil.getChestItemStack(1, 1));
         RecipeUtil.addBuggyBenchRecipe(new ItemStack(GCItems.buggy, 1, 3), input2);
 
         aluminumIngots.addAll(OreDictionary.getOres("ingotAluminum"));

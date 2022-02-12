@@ -277,6 +277,10 @@ public class GCPlayerHandler
                 {
                     GCPlayerHandler.sendGearUpdatePacket(player, EnumModelPacket.ADDLEFTVIOLETTANK);
                 }
+                else if (GCPlayer.tankInSlot1.getItem() == GCItems.oxygenCanisterInfinite)
+                {
+                    GCPlayerHandler.sendGearUpdatePacket(player, EnumModelPacket.ADDLEFTGRAYTANK);
+                }
                 if (GCPlayer.maskInSlot != null && GCPlayer.gearInSlot != null)
                 {
                     GCPlayer.airRemaining = GCPlayer.tankInSlot1.getMaxDamage() - GCPlayer.tankInSlot1.getItemDamage();
@@ -305,6 +309,10 @@ public class GCPlayerHandler
                 else if (GCPlayer.tankInSlot1.getItem() == GCItems.oxTankUltraHeavy)
                 {
                     GCPlayerHandler.sendGearUpdatePacket(player, EnumModelPacket.ADDLEFTVIOLETTANK);
+                }
+                else if (GCPlayer.tankInSlot1.getItem() == GCItems.oxygenCanisterInfinite)
+                {
+                    GCPlayerHandler.sendGearUpdatePacket(player, EnumModelPacket.ADDLEFTGRAYTANK);
                 }
                 if (GCPlayer.maskInSlot != null && GCPlayer.gearInSlot != null)
                 {
@@ -348,6 +356,10 @@ public class GCPlayerHandler
                 {
                     GCPlayerHandler.sendGearUpdatePacket(player, EnumModelPacket.ADDRIGHTVIOLETTANK);
                 }
+                else if (GCPlayer.tankInSlot2.getItem() == GCItems.oxygenCanisterInfinite)
+                {
+                    GCPlayerHandler.sendGearUpdatePacket(player, EnumModelPacket.ADDRIGHTGRAYTANK);
+                }
                 if (GCPlayer.maskInSlot != null && GCPlayer.gearInSlot != null)
                 {
                     GCPlayer.airRemaining2 = GCPlayer.tankInSlot2.getMaxDamage() - GCPlayer.tankInSlot2.getItemDamage();
@@ -376,6 +388,10 @@ public class GCPlayerHandler
                 else if (GCPlayer.tankInSlot2.getItem() == GCItems.oxTankUltraHeavy)
                 {
                     GCPlayerHandler.sendGearUpdatePacket(player, EnumModelPacket.ADDRIGHTVIOLETTANK);
+                }
+                else if (GCPlayer.tankInSlot2.getItem() == GCItems.oxygenCanisterInfinite)
+                {
+                    GCPlayerHandler.sendGearUpdatePacket(player, EnumModelPacket.ADDRIGHTGRAYTANK);
                 }
                 if (GCPlayer.maskInSlot != null && GCPlayer.gearInSlot != null)
                 {
@@ -659,20 +675,33 @@ public class GCPlayerHandler
             final ItemStack tankInSlot2 = playerStats.extendedInventory.getStackInSlot(3);
 
             final int drainSpacing = OxygenUtil.getDrainSpacing(tankInSlot, tankInSlot2);
+            
+            boolean hasInfinityTank = false;
 
         	if (tankInSlot == null)
             {
                 playerStats.airRemaining = 0;
             }
         	else
-                playerStats.airRemaining = tankInSlot.getMaxDamage() - tankInSlot.getItemDamage();
+        	{
+        		playerStats.airRemaining = tankInSlot.getMaxDamage() - tankInSlot.getItemDamage();
+        		hasInfinityTank = tankInSlot.getMaxDamage() == Integer.MAX_VALUE;
+        	}
 
             if (tankInSlot2 == null)
             {
                 playerStats.airRemaining2 = 0;
             }
             else
-                playerStats.airRemaining2 = tankInSlot2.getMaxDamage() - tankInSlot2.getItemDamage();
+            {
+            	playerStats.airRemaining2 = tankInSlot2.getMaxDamage() - tankInSlot2.getItemDamage();
+            	hasInfinityTank |= tankInSlot2.getMaxDamage() == Integer.MAX_VALUE;
+            }
+            
+            if(hasInfinityTank) {
+            	playerStats.oxygenSetupValid = true;
+            	return;
+            }
 
             if (drainSpacing > 0)
             {
@@ -1075,12 +1104,14 @@ public class GCPlayerHandler
         REMOVEMASK,
         ADDGEAR,
         REMOVEGEAR,
+        ADDLEFTGRAYTANK,
         ADDLEFTVIOLETTANK,
         ADDLEFTBLUETANK,
         ADDLEFTREDTANK,
         ADDLEFTORANGETANK,
         ADDLEFTGREENTANK,
         REMOVE_LEFT_TANK,
+        ADDRIGHTGRAYTANK,
         ADDRIGHTVIOLETTANK,
         ADDRIGHTBLUETANK,
         ADDRIGHTREDTANK,

@@ -19,7 +19,6 @@ import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
-import cpw.mods.ironchest.IronChest;
 import galaxyspace.core.register.GSItems;
 import micdoodle8.mods.galacticraft.api.GalacticraftRegistry;
 import micdoodle8.mods.galacticraft.api.galaxies.CelestialBody;
@@ -31,6 +30,7 @@ import micdoodle8.mods.galacticraft.core.command.CommandGCAstroMiner;
 import micdoodle8.mods.galacticraft.core.items.GCItems;
 import micdoodle8.mods.galacticraft.core.items.ItemCanisterGeneric;
 import micdoodle8.mods.galacticraft.core.recipe.NasaWorkbenchRecipe;
+import micdoodle8.mods.galacticraft.core.util.RecipeUtil;
 import micdoodle8.mods.galacticraft.planets.GuiIdsPlanets;
 import micdoodle8.mods.galacticraft.planets.IPlanetsModule;
 import micdoodle8.mods.galacticraft.planets.asteroids.blocks.AsteroidBlocks;
@@ -257,8 +257,8 @@ public class AsteroidsModule implements IPlanetsModule
         for(int i = 21; i <= 23; i++) {
             input.put(i, new ItemStack(GCItems.heavyPlatingTier1));
         }
-        input.put(24, new ItemStack(IronChest.ironChestBlock, 1, 1));
-        input.put(25, new ItemStack(IronChest.ironChestBlock, 1, 1));
+        input.put(24, RecipeUtil.getChestItemStack(1, 1));
+        input.put(25, RecipeUtil.getChestItemStack(1, 1));
         input.put(26, new ItemStack(AsteroidsItems.basicItem, 1, 8));
         input.put(27, new ItemStack(AsteroidBlocks.beamReceiver));
         input.put(28, new ItemStack(GameRegistry.findItem("IC2", "itemRecipePart"), 1, 1));

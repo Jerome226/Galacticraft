@@ -1,10 +1,10 @@
 [
 {
-  "modid": "GalacticraftCore",
-  "name": "Galacticraft Core",
+  "modid": "${modId}",
+  "name": "${modName}",
   "description": "An advanced space travel mod for Minecraft 1.7; Maintained by the GTNH team",
-  "version": "3.0.13-GTNH",
-  "mcversion": "1.7.10",
+  "version": "${modVersion}",
+  "mcversion": "${minecraftVersion}",
   "url": "https://github.com/GTNewHorizons/Galacticraft",
   "updateUrl": "https://github.com/GTNewHorizons/Galacticraft",
   "authorList": [
@@ -20,8 +20,8 @@
   "modid": "GalacticraftMars",
   "name": "Galacticraft Planets",
   "description": "Planets addon for Galacticraft; Maintained by the GTNH team.",
-  "version": "3.0.13-GTNH",
-  "mcversion": "1.7.10",
+  "version": "${modVersion}",
+  "mcversion": "${minecraftVersion}",
   "url": "https://github.com/GTNewHorizons/Galacticraft",
   "updateUrl": "https://github.com/GTNewHorizons/Galacticraft",
   "authorList": [

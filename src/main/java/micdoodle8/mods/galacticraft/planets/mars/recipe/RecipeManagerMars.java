@@ -2,7 +2,6 @@ package micdoodle8.mods.galacticraft.planets.mars.recipe;
 
 import java.util.HashMap;
 
-import cpw.mods.ironchest.IronChest;
 import galaxyspace.core.register.GSItems;
 import micdoodle8.mods.galacticraft.core.blocks.GCBlocks;
 import micdoodle8.mods.galacticraft.core.items.GCItems;
@@ -190,13 +189,13 @@ public class RecipeManagerMars
         }
 
         input2 = new HashMap<Integer, ItemStack>(input);
-        input2.put(21, new ItemStack(IronChest.ironChestBlock, 1, 3));
+        input2.put(21, RecipeUtil.getChestItemStack(1, 3));
         MarsUtil.adCargoRocketRecipe(new ItemStack(MarsItems.spaceship, 1, 11), input2);
         input2 = new HashMap<Integer, ItemStack>(input);
-        input2.put(21, new ItemStack(IronChest.ironChestBlock));
+        input2.put(21, RecipeUtil.getChestItemStack(1, 0));
         MarsUtil.adCargoRocketRecipe(new ItemStack(MarsItems.spaceship, 1, 12), input2);
         input2 = new HashMap<Integer, ItemStack>(input);
-        input2.put(21, new ItemStack(IronChest.ironChestBlock, 1, 1));
+        input2.put(21, RecipeUtil.getChestItemStack(1, 1));
         MarsUtil.adCargoRocketRecipe(new ItemStack(MarsItems.spaceship, 1, 13), input2);
 
         RecipeUtil.addRecipe(new ItemStack(MarsBlocks.machine, 1, BlockMachineMars.LAUNCH_CONTROLLER_METADATA), new Object[] { "ZVZ", "YXY", "ZWZ", 'V', new ItemStack(GCItems.basicItem, 1, 19), 'W', new ItemStack(GCBlocks.aluminumWire, 1, 0), 'X', new ItemStack(GCItems.basicItem, 1, 14), 'Y', deshPlate, 'Z', deshIngot });

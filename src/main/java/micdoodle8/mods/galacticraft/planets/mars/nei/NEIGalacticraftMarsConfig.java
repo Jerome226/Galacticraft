@@ -9,10 +9,10 @@ import java.util.Set;
 import codechicken.nei.PositionedStack;
 import codechicken.nei.api.API;
 import codechicken.nei.api.IConfigureNEI;
-import cpw.mods.ironchest.IronChest;
 import galaxyspace.core.register.GSItems;
 import micdoodle8.mods.galacticraft.core.Constants;
 import micdoodle8.mods.galacticraft.core.items.GCItems;
+import micdoodle8.mods.galacticraft.core.util.RecipeUtil;
 import micdoodle8.mods.galacticraft.planets.asteroids.items.AsteroidsItems;
 import micdoodle8.mods.galacticraft.planets.mars.blocks.MarsBlocks;
 import micdoodle8.mods.galacticraft.planets.mars.items.MarsItems;
@@ -51,7 +51,7 @@ public class NEIGalacticraftMarsConfig implements IConfigureNEI
     @Override
     public String getVersion()
     {
-        return Constants.LOCALMAJVERSION + "." + Constants.LOCALMINVERSION + "." + Constants.LOCALBUILDVERSION;
+        return Constants.VERSION;
     }
 
     public void registerRocketBenchRecipe(ArrayList<PositionedStack> input, PositionedStack output)
@@ -174,13 +174,13 @@ public class NEIGalacticraftMarsConfig implements IConfigureNEI
         input.add(new PositionedStack(new ItemStack(GCItems.partFins), 26 - x, 109 - y));
         input.add(new PositionedStack(new ItemStack(GCItems.partFins), 80 - x, 109 - y));
         input2 = new ArrayList<>(input);
-        input2.add(new PositionedStack(new ItemStack(IronChest.ironChestBlock, 1, 3), 134 - x, 46 - y));
+        input2.add(new PositionedStack(RecipeUtil.getChestItemStack(1, 3), 134 - x, 46 - y));
         registerCargoBenchRecipe(input2, new PositionedStack(new ItemStack(MarsItems.spaceship, 1, 11), 134 - x, 73 - y));
         input2 = new ArrayList<>(input);
-        input2.add(new PositionedStack(new ItemStack(IronChest.ironChestBlock), 134 - x, 46 - y));
+        input2.add(new PositionedStack(RecipeUtil.getChestItemStack(1, 0), 134 - x, 46 - y));
         registerCargoBenchRecipe(input2, new PositionedStack(new ItemStack(MarsItems.spaceship, 1, 12), 134 - x, 73 - y));
         input2 = new ArrayList<>(input);
-        input2.add(new PositionedStack(new ItemStack(IronChest.ironChestBlock, 1, 1), 134 - x, 46 - y));
+        input2.add(new PositionedStack(RecipeUtil.getChestItemStack(1, 1), 134 - x, 46 - y));
         registerCargoBenchRecipe(input2, new PositionedStack(new ItemStack(MarsItems.spaceship, 1, 13), 134 - x, 73 - y));
 
         this.registerLiquefierRecipe(new PositionedStack(new ItemStack(AsteroidsItems.methaneCanister, 1, 1), 2, 3), new PositionedStack(new ItemStack(GCItems.fuelCanister, 1, 1), 127, 3));

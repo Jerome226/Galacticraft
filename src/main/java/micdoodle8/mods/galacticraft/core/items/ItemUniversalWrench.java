@@ -1,10 +1,11 @@
 package micdoodle8.mods.galacticraft.core.items;
 
+import buildcraft.api.tools.IToolWrench;
+import cpw.mods.fml.common.Optional.Interface;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import micdoodle8.mods.galacticraft.core.GalacticraftCore;
 import micdoodle8.mods.galacticraft.core.proxy.ClientProxyCore;
-import micdoodle8.mods.miccore.Annotations.RuntimeInterface;
 import net.minecraft.block.Block;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.creativetab.CreativeTabs;
@@ -16,8 +17,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class ItemUniversalWrench extends Item
-{
+@Interface(modid = "BuildCraftAPI|tools", iface = "buildcraft.api.tools.IToolWrench")
+public class ItemUniversalWrench extends Item implements IToolWrench {
+	
     public ItemUniversalWrench(String assetName)
     {
         super();
@@ -40,14 +42,14 @@ public class ItemUniversalWrench extends Item
         return ClientProxyCore.galacticraftItem;
     }
 
-    @RuntimeInterface(clazz = "buildcraft.api.tools.IToolWrench", modID = "BuildCraft|Core")
-    public boolean canWrench(EntityPlayer entityPlayer, int x, int y, int z)
+    @Override
+	public boolean canWrench(EntityPlayer entityPlayer, int x, int y, int z)
     {
         return true;
     }
 
-    @RuntimeInterface(clazz = "buildcraft.api.tools.IToolWrench", modID = "BuildCraft|Core")
-    public void wrenchUsed(EntityPlayer entityPlayer, int x, int y, int z)
+    @Override
+	public void wrenchUsed(EntityPlayer entityPlayer, int x, int y, int z)
     {
         ItemStack stack = entityPlayer.inventory.getCurrentItem();
 

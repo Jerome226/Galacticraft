@@ -2,12 +2,15 @@ package micdoodle8.mods.galacticraft.core.util;
 
 import java.util.HashMap;
 
+import cpw.mods.fml.common.registry.GameRegistry;
 import ic2.api.item.IC2Items;
 import micdoodle8.mods.galacticraft.api.GalacticraftRegistry;
 import micdoodle8.mods.galacticraft.api.recipe.INasaWorkbenchRecipe;
 import micdoodle8.mods.galacticraft.core.inventory.InventoryBuggyBench;
 import micdoodle8.mods.galacticraft.core.inventory.InventoryRocketBench;
 import micdoodle8.mods.galacticraft.core.recipe.NasaWorkbenchRecipe;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraftforge.oredict.OreDictionary;
@@ -48,7 +51,8 @@ public class RecipeUtil
     	CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(result, obj));
     }
     
-    public static void addBlockRecipe(ItemStack result, String oreDictIngot, ItemStack gcIngot)
+    @SuppressWarnings("unchecked")
+	public static void addBlockRecipe(ItemStack result, String oreDictIngot, ItemStack gcIngot)
     {   
     	if (OreDictionary.getOres(oreDictIngot).size() > 1)
     	{
@@ -74,4 +78,15 @@ public class RecipeUtil
 	{
 		return IC2Items.getItem(indentifier);
 	}
+
+    public static Block getChestBlock() {
+        Block block = GameRegistry.findBlock("IronChest", "BlockIronChest");
+        if (block == null)
+            block = Blocks.chest;
+        return block;
+    }
+    public static ItemStack getChestItemStack(int size, int meta) {
+        Block block = getChestBlock();
+        return new ItemStack(block, size, meta);
+    }
 }

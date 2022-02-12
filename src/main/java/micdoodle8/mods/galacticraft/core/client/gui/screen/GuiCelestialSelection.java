@@ -464,12 +464,12 @@ public class GuiCelestialSelection extends GuiScreen
 
     protected boolean canCreateSpaceStation(CelestialBody atBody)
     {
-        if (this.mapMode || ConfigManagerCore.disableSpaceStationCreation)
+    	if (this.mapMode || !atBody.getAllowSatellite() || ConfigManagerCore.disableSpaceStationCreation)
         {
             return false;
         }
 
-        if (!atBody.getReachable() || (this.possibleBodies != null && !this.possibleBodies.contains(atBody)))
+    	if (!((atBody.getReachable() && (possibleBodies == null || possibleBodies.contains(atBody))) || ConfigManagerCore.allowSSatUnreachable))
         {
             // If parent body is unreachable, the satellite is also unreachable
             return false;

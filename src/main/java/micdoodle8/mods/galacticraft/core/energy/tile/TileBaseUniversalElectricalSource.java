@@ -4,6 +4,10 @@ import java.lang.reflect.Method;
 import java.util.EnumSet;
 
 import cofh.api.energy.IEnergyContainerItem;
+import cpw.mods.fml.common.Optional.Interface;
+import cpw.mods.fml.common.Optional.InterfaceList;
+import ic2.api.energy.tile.IEnergySource;
+import mekanism.api.energy.ICableOutputter;
 import micdoodle8.mods.galacticraft.api.item.ElectricItemHelper;
 import micdoodle8.mods.galacticraft.api.item.IItemElectric;
 import micdoodle8.mods.galacticraft.api.transmission.grid.IElectricityNetwork;
@@ -13,16 +17,18 @@ import micdoodle8.mods.galacticraft.api.vector.BlockVec3;
 import micdoodle8.mods.galacticraft.core.energy.EnergyConfigHandler;
 import micdoodle8.mods.galacticraft.core.energy.EnergyUtil;
 import micdoodle8.mods.galacticraft.core.util.VersionUtil;
-import micdoodle8.mods.miccore.Annotations.RuntimeInterface;
-import micdoodle8.mods.miccore.Annotations.VersionSpecific;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class TileBaseUniversalElectricalSource extends TileBaseUniversalElectrical
-{
+@InterfaceList({
+	@Interface(modid = "IC2API", iface = "ic2.api.energy.tile.IEnergySource"),
+	@Interface(modid = "MekanismAPI|energy", iface = "mekanism.api.energy.ICableOutputter")
+})
+public class TileBaseUniversalElectricalSource extends TileBaseUniversalElectrical implements IEnergySource, ICableOutputter {
+	
     /*
      * The main function to output energy each tick from a source.
      *
@@ -183,8 +189,8 @@ public class TileBaseUniversalElectricalSource extends TileBaseUniversalElectric
         }
     }
 
-    @RuntimeInterface(clazz = "ic2.api.energy.tile.IEnergyEmitter", modID = "IC2")
-    public boolean emitsEnergyTo(TileEntity receiver, ForgeDirection direction)
+    @Override
+	public boolean emitsEnergyTo(TileEntity receiver, ForgeDirection direction)
     {
         //Don't add connection to IC2 grid if it's a Galacticraft tile
         if (receiver instanceof IElectrical || receiver instanceof IConductor)
@@ -207,8 +213,8 @@ public class TileBaseUniversalElectricalSource extends TileBaseUniversalElectric
         return this.getElectricalOutputDirections().contains(direction);
     }
 
-    @RuntimeInterface(clazz = "ic2.api.energy.tile.IEnergySource", modID = "IC2")
-    public double getOfferedEnergy()
+    @Override
+	public double getOfferedEnergy()
     {
         if (EnergyConfigHandler.disableIC2Output)
         {
@@ -218,8 +224,8 @@ public class TileBaseUniversalElectricalSource extends TileBaseUniversalElectric
         return this.getProvide(ForgeDirection.UNKNOWN) * EnergyConfigHandler.TO_IC2_RATIO;
     }
 
-    @RuntimeInterface(clazz = "ic2.api.energy.tile.IEnergySource", modID = "IC2")
-    public void drawEnergy(double amount)
+    @Override
+	public void drawEnergy(double amount)
     {
         if (EnergyConfigHandler.disableIC2Output)
         {
@@ -229,15 +235,13 @@ public class TileBaseUniversalElectricalSource extends TileBaseUniversalElectric
         this.storage.extractEnergyGC((float) amount / EnergyConfigHandler.TO_IC2_RATIO, false);
     }
 
-    @VersionSpecific(version = "[1.7.10]")
-    @RuntimeInterface(clazz = "ic2.api.energy.tile.IEnergySource", modID = "IC2")
-    public int getSourceTier()
+    @Override
+	public int getSourceTier()
     {
         return this.tierGC + 1;
     }
 
     @Override
-	@RuntimeInterface(clazz = "mekanism.api.energy.ICableOutputter", modID = "Mekanism")
     public boolean canOutputTo(ForgeDirection side)
     {
         return this.getElectricalOutputDirections().contains(side);
@@ -268,15 +272,8 @@ public class TileBaseUniversalElectricalSource extends TileBaseUniversalElectric
     {
         return ForgeDirection.UNKNOWN;
     }
-
-    @RuntimeInterface(clazz = "buildcraft.api.power.IPowerEmitter", modID = "")
-    public boolean canEmitPowerFrom(ForgeDirection side)
-    {
-        return this.getElectricalOutputDirections().contains(side);
-    }
     
     @Override
-	@RuntimeInterface(clazz = "cofh.api.energy.IEnergyProvider", modID = "")
     public int extractEnergy(ForgeDirection from, int maxExtract, boolean simulate)
     {
         if (EnergyConfigHandler.disableRFOutput)

@@ -16,7 +16,6 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.ClientTickEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.Phase;
 import cpw.mods.fml.common.gameevent.TickEvent.RenderTickEvent;
-import cpw.mods.fml.relauncher.Side;
 import micdoodle8.mods.galacticraft.api.block.IDetectableResource;
 import micdoodle8.mods.galacticraft.api.entity.IEntityNoisy;
 import micdoodle8.mods.galacticraft.api.entity.IIgnoreShift;
@@ -59,7 +58,6 @@ import micdoodle8.mods.galacticraft.core.util.GCCoreUtil;
 import micdoodle8.mods.galacticraft.core.util.MapUtil;
 import micdoodle8.mods.galacticraft.core.util.OxygenUtil;
 import micdoodle8.mods.galacticraft.core.util.PlayerUtil;
-import micdoodle8.mods.galacticraft.core.util.ThreadRequirementMissing;
 import micdoodle8.mods.galacticraft.core.wrappers.BlockMetaList;
 import micdoodle8.mods.galacticraft.core.wrappers.Footprint;
 import net.minecraft.block.Block;
@@ -85,11 +83,8 @@ public class TickHandlerClient
 {
     public static int airRemaining;
     public static int airRemaining2;
-    private static boolean lastInvKeyPressed;
     private static long tickCount;
     public static boolean spaceRaceGuiScheduled = false;
-
-    private static ThreadRequirementMissing missingRequirementThread;
     
     public static HashSet<TileEntityScreen> screenConnectionsUpdateList = new HashSet<TileEntityScreen>();
 
@@ -241,7 +236,7 @@ public class TickHandlerClient
                 OverlayLaunchCountdown.renderCountdownOverlay();
             }
 
-            if (player != null && player.worldObj.provider instanceof IGalacticraftWorldProvider && OxygenUtil.shouldDisplayTankGui(minecraft.currentScreen) && OxygenUtil.noAtmosphericCombustion(player.worldObj.provider))
+            if (player != null && (ConfigManagerCore.alwaysDisplayOxygenHUD || player.worldObj.provider instanceof IGalacticraftWorldProvider && OxygenUtil.shouldDisplayTankGui(minecraft.currentScreen) && OxygenUtil.noAtmosphericCombustion(player.worldObj.provider)))
             {
                 int var6 = (TickHandlerClient.airRemaining - 90) * -1;
 
@@ -377,12 +372,6 @@ public class TickHandlerClient
             if (minecraft.currentScreen instanceof GuiMainMenu)
             {
                 ClientProxyCore.reset();
-
-                if (TickHandlerClient.missingRequirementThread == null)
-                {
-                    TickHandlerClient.missingRequirementThread = new ThreadRequirementMissing(Side.CLIENT);
-                    TickHandlerClient.missingRequirementThread.start();
-                }
             }
 
             if (world != null && TickHandlerClient.spaceRaceGuiScheduled && minecraft.currentScreen == null && ConfigManagerCore.enableSpaceRaceManagerPopup)

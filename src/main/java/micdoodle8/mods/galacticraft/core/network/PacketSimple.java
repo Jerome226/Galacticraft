@@ -446,6 +446,9 @@ public class PacketSimple extends Packet implements IPacket
                 case ADDLEFTVIOLETTANK:
                     gearData.setLeftTank(4);
                     break;
+                case ADDLEFTGRAYTANK:
+                	gearData.setLeftTank(Integer.MAX_VALUE);
+                	break;
                 case ADDRIGHTGREENTANK:
                     gearData.setRightTank(0);
                     break;
@@ -461,6 +464,9 @@ public class PacketSimple extends Packet implements IPacket
                 case ADDRIGHTVIOLETTANK:
                     gearData.setRightTank(4);
                     break;
+                case ADDRIGHTGRAYTANK:
+                	gearData.setRightTank(Integer.MAX_VALUE);
+                	break;
                 case REMOVE_LEFT_TANK:
                     gearData.setLeftTank(-1);
                     break;
