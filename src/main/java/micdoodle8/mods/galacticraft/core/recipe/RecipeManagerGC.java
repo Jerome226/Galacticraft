@@ -228,10 +228,10 @@ public class RecipeManagerGC
         }
 
         final HashMap<Object, Integer> inputMap = new HashMap<Object, Integer>();
-        inputMap.put("blockTin", 256);
-        inputMap.put("blockFutureGlass", 8);
+        inputMap.put(new ItemStack(GCBlocks.basicBlock, 1, 4), 231);
+        inputMap.put(new ItemStack(Blocks.glass_pane), 6);
         inputMap.put("ingotTitanium", 8);
-        inputMap.put(RecipeUtilGS.getItem("GalacticraftAmunRa", "item.baseItem"), 8);
+        inputMap.put(RecipeUtilGS.getItem("amunra", "item.baseItem"), 8);
         GalacticraftRegistry.registerSpaceStation(new SpaceStationType(ConfigManagerCore.idDimensionOverworldOrbit, 0, new SpaceStationRecipe(inputMap)));
 
         RecipeUtil.addRecipe(new ItemStack(GCBlocks.aluminumWire, 6), new Object[] { "WWW", "CCC", "WWW", 'W', "blockWool", 'C', "ingotAluminum" });
