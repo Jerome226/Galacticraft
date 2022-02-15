@@ -8,7 +8,6 @@ import appeng.api.AEApi;
 import appeng.api.util.AEColor;
 import cpw.mods.fml.common.registry.GameRegistry;
 import galaxyspace.core.item.ItemPlates.PlateTypes;
-import galaxyspace.core.recipe.RecipeUtilGS;
 import galaxyspace.core.register.GSItems;
 import micdoodle8.mods.galacticraft.api.GalacticraftRegistry;
 import micdoodle8.mods.galacticraft.api.recipe.CircuitFabricatorRecipes;
@@ -230,8 +229,7 @@ public class RecipeManagerGC
         final HashMap<Object, Integer> inputMap = new HashMap<Object, Integer>();
         inputMap.put(new ItemStack(GCBlocks.basicBlock, 1, 4), 231);
         inputMap.put(new ItemStack(Blocks.glass_pane), 6);
-        inputMap.put("ingotTitanium", 8);
-        inputMap.put(RecipeUtilGS.getItem("amunra", "item.baseItem"), 8);
+        inputMap.put("ingotTitanium", 2);
         GalacticraftRegistry.registerSpaceStation(new SpaceStationType(ConfigManagerCore.idDimensionOverworldOrbit, 0, new SpaceStationRecipe(inputMap)));
 
         RecipeUtil.addRecipe(new ItemStack(GCBlocks.aluminumWire, 6), new Object[] { "WWW", "CCC", "WWW", 'W', "blockWool", 'C', "ingotAluminum" });
